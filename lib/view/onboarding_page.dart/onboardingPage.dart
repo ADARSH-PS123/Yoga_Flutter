@@ -33,7 +33,7 @@ stops: const [0.4,.75],
           },
           blendMode: BlendMode.dstOut,
           child:  Image.asset(
-            "assets/img1.png",
+            "asset/guru.jpg",
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
           ),
