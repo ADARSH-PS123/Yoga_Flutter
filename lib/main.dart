@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:yoga/core/theme/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yoga/application/initialiize/initilize_bloc.dart';
+import 'package:yoga/application/login/login_bloc.dart';
+import 'package:yoga/application/programms/programms_bloc.dart';
+import 'package:yoga/core/di/injectable.dart';
 import 'package:yoga/core/theme/theme.dart';
+import 'package:yoga/precentation/initialize/initialize.dart';
+import 'application/entroll/entroll_bloc.dart';
+import 'application/register/register_bloc.dart';
 
-import 'package:yoga/view/onboarding_page.dart/onboardingPage.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-
-void main() {
+  await configureInjeactable();
   runApp(const MyApp());
 }
 
@@ -15,38 +22,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-
-      theme: AppThemes.lightTheme(),
-      home: const OnBoardingScreen(),
-    );
-  }
-}
-
-
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor:AppColor.SplashScreenColor ,
-      body: Column(
-   
-     mainAxisAlignment: MainAxisAlignment.center,
-       crossAxisAlignment: CrossAxisAlignment.center,
-      
-        children: [
-          Center(
-            child: Text("SANJEEV KRISHNA",style:Theme.of(context).textTheme.titleLarge
-            ,),
-          ),
-            Center(
-              child: Text("YOGA", style:Theme.of(context).textTheme.titleLarge,),
-            ),
-        ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => InitilizeBloc()),
+        BlocProvider(create: (context) => getIt<RegisterBloc>()),
+        BlocProvider(create: (context) => getIt<LoginBloc>()),
+        BlocProvider(create: (context) => getIt<ProgrammsBloc>()),
+        BlocProvider(create: (context) => getIt<EntrollBloc>()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: AppThemes.lightTheme(),
+        home: const Initialize(),
       ),
     );
   }
 }
+
+
