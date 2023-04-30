@@ -1,11 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProgrammItem extends StatelessWidget {
   final String imgUrl;
   final String name;
+  final Color? color;
   const ProgrammItem({
     required this.imgUrl,
     required this.name,
+    this.color,
     super.key,
   });
 
@@ -23,13 +26,32 @@ class ProgrammItem extends StatelessWidget {
           Expanded(
             child: Container(
               width: double.maxFinite,
-              decoration:  BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(6),
-                    topRight: Radius.circular(6),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(6),
+                  topRight: Radius.circular(6),
+                ),
+                color: color ?? Colors.white,
+                // image: DecorationImage(
+                //     fit: BoxFit.cover, image:
+                // )
+              ),
+              child: ClipRRect(
+                  borderRadius: const BorderRadiusDirectional.only(
+                    topStart: Radius.circular(6),
+                    topEnd: Radius.circular(6),
                   ),
-                  color: Colors.white,
-                  image: DecorationImage(image: NetworkImage(imgUrl))),
+                  child: Image.asset(
+                    imgUrl,
+                    fit: BoxFit.cover,
+                  )
+
+                  //  CachedNetworkImage(
+                  //   fit: BoxFit.cover,
+                  //   errorWidget: (context, url, error) => const Icon(Icons.error),
+                  //   imageUrl: imgUrl,
+                  // ),
+                  ),
             ),
           ),
           SizedBox(

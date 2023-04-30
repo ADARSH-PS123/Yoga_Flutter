@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
-  const ButtonWidget(
+class ButtonWidgets extends StatelessWidget {
+  const ButtonWidgets(
       {super.key,
       required this.title,
       required this.width,

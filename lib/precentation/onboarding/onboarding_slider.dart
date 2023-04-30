@@ -103,7 +103,7 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
                   const SizedBox(
                     height: 10,
                   ),
-                  ButtonWidget(
+                  ButtonWidgets(
                       title: 'Login',
                       width: .8,
                       onPressed: () {

@@ -62,7 +62,7 @@ class OnBoardingScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  ButtonWidget(
+                  ButtonWidgets(
                       title: 'Get Started',
                       width: .8,
                       onPressed: () {

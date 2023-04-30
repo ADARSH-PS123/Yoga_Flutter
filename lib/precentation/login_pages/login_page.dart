@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/login/login_bloc.dart';
 import 'package:yoga/precentation/onboarding/onboarding_page.dart';
+import 'package:yoga/precentation/pogramms/pogramms_page.dart';
 import 'package:yoga/precentation/widgets/text_form_feild.dart';
 
 import '../../core/constants.dart';
@@ -49,7 +50,6 @@ class LoginOptionsPage extends StatelessWidget {
                   const SizedBox(height: 30),
                   const SizedBox(height: 20),
                   SizedBox(
-    
                     child: InputFieldWidget(
                       controller: emailtextEditingController,
                       hintText: "Email",
@@ -94,7 +94,7 @@ class LoginOptionsPage extends StatelessWidget {
 
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => const OnBoardingScreen(),
+                            builder: (context) => const ProgrammsPage(),
                           ),
                         );
                       }

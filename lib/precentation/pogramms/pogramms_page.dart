@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/programms/programms_bloc.dart';
+import 'package:yoga/core/di/pgram_list.dart';
+import 'package:yoga/core/di/pgram_list.dart';
 import 'package:yoga/domain/programms/model/programms.dart';
 import 'package:yoga/precentation/pogramms/widget/program_item.dart';
+import 'package:yoga/precentation/programm_details/program_details_page.dart';
 import '../../core/constants.dart';
 import '../../core/secure_storage.dart';
 
@@ -76,20 +79,20 @@ class ProgrammsPage extends StatelessWidget {
                             width: double.maxFinite,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
-                              itemCount: data.data!.length,
+                              itemCount: p.length,
                               itemBuilder: (context, index) => InkWell(
                                 onTap: () {
-                                  // context.read<EntrollBloc>().add(
-                                  //       EntrollEvent.entroll(
-                                  //         id: data.data![index].id.toString(),
-                                  //       ),
-                                  //     );
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => ProgramDetailsPage(
+                                          programs: p[index]),
+                                    ),
+                                  );
                                 },
                                 child: ProgrammItem(
-                                    name:
-                                        data.data![index].mainTitle.toString(),
-                                    imgUrl:
-                                        "$imgBaseUrl${data.data![index].image}"),
+                                    color: p[index].bgColor,
+                                    name: p[index].mainTitle.toString(),
+                                    imgUrl: p[index].image.toString()),
                               ),
                             ),
                           );
@@ -100,11 +103,11 @@ class ProgrammsPage extends StatelessWidget {
                         }
                       },
                     ),
-                    TextButton(
-                        onPressed: () async {
-                          await deleteFromSS(secureStoreKey);
-                        },
-                        child: const Text("Logout"))
+                    // TextButton(
+                    //     onPressed: () async {
+                    //       await deleteFromSS(secureStoreKey);
+                    //     },
+                    //     child: const Text("Logout"))
                   ],
                 ),
               ),

@@ -8,13 +8,11 @@ import '../../core/api.dart';
 import '../../core/main_failures.dart';
 import '../../domain/entroll/i_entroll_repo.dart';
 
-
 @LazySingleton(as: IEntroll)
 class EntrollRepository implements IEntroll {
   @override
   Future<Either<MainFailure, Entroll>> entroll({
     required String id,
-   
   }) async {
     var dio = Dio();
     try {
@@ -22,14 +20,13 @@ class EntrollRepository implements IEntroll {
         EndPoints.entroll,
         queryParameters: {
           'program_id': id,
-   
         },
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         final entrollResult = Entroll.fromJson(response.data);
+        log(entrollResult.toString());
 
-       
         return Right(entrollResult);
       } else {
         log(MainFailure.serverFailure().toString());

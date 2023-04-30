@@ -116,7 +116,9 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   const SizedBox(height: 20),
                   SizedBox(
-                    child: DropdownButtonFormField(
+                    child: 
+                    
+                    DropdownButtonFormField(
                       style: const TextStyle(color: Colors.black, fontSize: 16),
                       validator: (valid) {
                         if (valid == null) {
