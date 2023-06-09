@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/login/login_bloc.dart';
+import 'package:yoga/precentation/common_widget/custom_snackbar.dart';
 import 'package:yoga/precentation/onboarding/onboarding_page.dart';
 import 'package:yoga/precentation/pogramms/pogramms_page.dart';
 import 'package:yoga/precentation/widgets/text_form_feild.dart';
@@ -91,6 +92,12 @@ class LoginOptionsPage extends StatelessWidget {
                       } else if (state.hasmpinValidationData) {
                         addTokenToSS(secureStoreKey,
                             state.authDetails!.token.toString());
+
+                             CustomSnackBar.show(
+                          context,
+                          'You are successfully logged in! 🥳',
+                          Colors.black,
+                        );
 
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(

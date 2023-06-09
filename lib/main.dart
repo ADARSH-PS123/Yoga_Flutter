@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/initialiize/initilize_bloc.dart';
 import 'package:yoga/application/login/login_bloc.dart';
 import 'package:yoga/application/programms/programms_bloc.dart';
+import 'package:yoga/application/voice/voice_bloc.dart';
 import 'package:yoga/core/di/injectable.dart';
 import 'package:yoga/core/theme/theme.dart';
 import 'package:yoga/precentation/initialize/initialize.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<LoginBloc>()),
         BlocProvider(create: (context) => getIt<ProgrammsBloc>()),
         BlocProvider(create: (context) => getIt<EntrollBloc>()),
+        BlocProvider(create: (context) => getIt<VoiceBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

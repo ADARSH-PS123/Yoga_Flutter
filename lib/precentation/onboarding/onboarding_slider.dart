@@ -35,100 +35,94 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.darkPink,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    itemCount: images.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Image.asset(
-                        images[index],
-                        fit: BoxFit.cover,
-                      );
-                    },
-                    onPageChanged: (value) {
-                      setState(() {
-                        sliderindex = value;
-                      });
-                    },
+      appBar: null,
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView.builder(
+              itemCount: images.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Image.asset(
+                  images[index],
+                  fit: BoxFit.contain,
+                );
+              },
+              onPageChanged: (value) {
+                setState(() {
+                  sliderindex = value;
+                });
+              },
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                images.length,
+                (index) => AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  margin: const EdgeInsets.only(
+                      right: 12, top: 15, bottom: 10),
+                  height: index == sliderindex ? 15 : 8,
+                  width: 8,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color:
+                        index == sliderindex ? Colors.grey : Colors.grey,
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        images.length,
-                        (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.only(
-                              right: 12, top: 15, bottom: 10),
-                          height: index == sliderindex ? 15 : 8,
-                          width: 8,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: index == sliderindex
-                                ? Colors.grey
-                                : Colors.grey,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
-            Container(
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [AppColor.darkPink, AppColor.lightGray],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter)),
-              height: 200,
-              width: double.maxFinite,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 55,
-                    child: Text(quotes[sliderindex],
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayMedium!
-                            .copyWith(color: AppColor.whitePure)),
+          ),
+          Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [AppColor.darkPink, AppColor.lightGray],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)),
+            height: 200,
+            width: double.maxFinite,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 55,
+                  child: Text(quotes[sliderindex],
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium!
+                          .copyWith(color: AppColor.whitePure)),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                ButtonWidgets(
+                    title: 'Login',
+                    width: .8,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const LoginOptionsPage(),
+                      ));
+                    }),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const SignupPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Dont have an acoount ? Sign Up',
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  ButtonWidgets(
-                      title: 'Login',
-                      width: .8,
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LoginOptionsPage(),
-                        ));
-                      }),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => const SignupPage(),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'Dont have an acoount ? Sign Up',
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

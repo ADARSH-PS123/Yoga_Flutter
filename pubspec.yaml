@@ -25,6 +25,9 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   internet_connection_checker_plus: ^1.0.1
   cached_network_image: ^3.2.3
+  audioplayers: ^4.0.1
+  flutter_svg: ^2.0.6
+  dropdown_button2: ^2.1.3
 
 dev_dependencies:
   flutter_test:
@@ -47,5 +50,15 @@ flutter:
   assets:
     - asset/
     - asset/image/
+    - asset/fonts/
+    - asset/icon/
+  
+  fonts:
+    - family: Nexa
+      fonts:
+        - asset: asset/fonts/Nexa Light.otf
+          weight: 400
+        - asset: asset/fonts/Nexa Bold.otf
+          weight: 800
 
   #

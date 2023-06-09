@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/entroll/entroll_bloc.dart';
 import 'package:yoga/core/di/pgram_list.dart';
+import 'package:yoga/precentation/common_widget/custom_snackbar.dart';
 import 'package:yoga/precentation/widget/button_widget.dart';
+
+import '../../domain/entroll/model/list.dart';
 
 class ProgramDetailsPage extends StatelessWidget {
   final Program programs;
@@ -10,6 +13,10 @@ class ProgramDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<EntrollBloc>().add(const EntrollEvent.getlist());
+    });
+
     return Scaffold(
       backgroundColor: programs.bgColor,
       body: Container(
@@ -73,25 +80,31 @@ class ProgramDetailsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      programs.mainTitle==null?const SizedBox() : Text(
-                          programs.mainTitle.toString(),
-                          style: TextStyle(
-                              color: programs.txtColor,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
-                        ),
-                       programs.subTitle==null?const SizedBox() :  Padding(
-                          padding: const EdgeInsets.only(top: 15, bottom: 15),
-                          child: Text(
-                            programs.subTitle.toString(),
-                            style: TextStyle(
-                                color: programs.txtColor, fontSize: 18),
-                          ),
-                        ),
+                        programs.mainTitle == null || !programs.showTitle
+                            ? const SizedBox()
+                            : Text(
+                                programs.mainTitle.toString(),
+                                style: TextStyle(
+                                    color: programs.txtColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                        programs.subTitle == null
+                            ? const SizedBox()
+                            : Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 15, bottom: 15),
+                                child: Text(
+                                  programs.subTitle.toString(),
+                                  style: TextStyle(
+                                      color: programs.txtColor, fontSize: 18),
+                                ),
+                              ),
                         Text(
                           programs.description.toString(),
                           style: TextStyle(
                               color: programs.txtColor,
+                              fontFamily: "Nexa",
                               height: 1.5,
                               fontSize: 16,
                               fontStyle: FontStyle.normal),
@@ -101,15 +114,56 @@ class ProgramDetailsPage extends StatelessWidget {
                         ),
                         BlocConsumer<EntrollBloc, EntrollState>(
                           listener: (context, state) {
-                            // TODO: implement listener
+                            if (state.getlist != null) {
+                              final GetList data =
+                                  context.read<EntrollBloc>().state.getlist!;
+
+                              List? name = data.data!
+                                  .where((element) =>
+                                      element.progrmName == programs.mainTitle)
+                                  .toList();
+                              if (name.isNotEmpty && !state.listLoding) {
+                                CustomSnackBar.show(
+                                  context,
+                                  'Your are already entrolled to this program! 🥳',
+                                  programs.bgColor,
+                                );
+                              }
+                            }
                           },
                           builder: (context, state) {
+                            if (state.listLoding) {
+                              return const CircularProgressIndicator();
+                            } else if (state.getlist != null) {
+                              final GetList data =
+                                  context.read<EntrollBloc>().state.getlist!;
+
+                              List? name = data.data!
+                                  .where((element) =>
+                                      element.progrmName == programs.mainTitle)
+                                  .toList();
+                              if (name.isNotEmpty) {
+                                return const SizedBox();
+                              }
+                            } else {
+                              return ButtonWidget(
+                                buttonName: "REGISTER NOW",
+                                voidCallback: () {
+                                  context.read<EntrollBloc>().add(
+                                        EntrollEvent.entroll(
+                                          id: programs.mainTitle.toString(),
+                                        ),
+                                      );
+                                },
+                                isLoading: state.isLoading,
+                              );
+                            }
                             return ButtonWidget(
                               buttonName: "REGISTER NOW",
                               voidCallback: () {
                                 context.read<EntrollBloc>().add(
                                       EntrollEvent.entroll(
-                                        id: programs.id.toString(),
+                                        id: programs.mainTitle.toString(),
                                       ),
                                     );
                               },

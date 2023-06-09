@@ -5,11 +5,15 @@ class ProgrammItem extends StatelessWidget {
   final String imgUrl;
   final String name;
   final Color? color;
+  final bool isVoice;
+  final double ? width;
   const ProgrammItem({
     required this.imgUrl,
     required this.name,
+    required this.isVoice,
     this.color,
     super.key,
+    this.width,
   });
 
   @override
@@ -19,7 +23,7 @@ class ProgrammItem extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: const Color(0xff4D5D81)),
-      width: 150,
+      width:width?? 150,
       height: 150,
       child: Column(
         children: [
@@ -37,31 +41,34 @@ class ProgrammItem extends StatelessWidget {
                 // )
               ),
               child: ClipRRect(
-                  borderRadius: const BorderRadiusDirectional.only(
-                    topStart: Radius.circular(6),
-                    topEnd: Radius.circular(6),
-                  ),
-                  child: Image.asset(
-                    imgUrl,
-                    fit: BoxFit.cover,
-                  )
-
-                  //  CachedNetworkImage(
-                  //   fit: BoxFit.cover,
-                  //   errorWidget: (context, url, error) => const Icon(Icons.error),
-                  //   imageUrl: imgUrl,
-                  // ),
-                  ),
+                borderRadius: const BorderRadiusDirectional.only(
+                  topStart: Radius.circular(6),
+                  topEnd: Radius.circular(6),
+                ),
+                child: !isVoice 
+                    ? Image.asset(
+                        imgUrl,
+                        fit: BoxFit.cover,
+                      )
+                    : CachedNetworkImage(
+                        fit: BoxFit.cover,
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
+                        imageUrl: imgUrl,
+                      ),
+              ),
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 35,
             child: Center(
               child: Text(
                 name,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                  fontSize: 12,
                 ),
               ),
             ),

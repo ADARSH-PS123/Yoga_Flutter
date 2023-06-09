@@ -1,21 +1,17 @@
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:yoga/core/secure_storage.dart';
-import 'package:yoga/domain/entroll/model/entroll.dart';
-import '../../core/api.dart';
+import 'package:yoga/domain/voice/i_voice_repo.dart';
+import 'package:yoga/domain/voice/model/voice.dart';
 import '../../core/constants.dart';
 import '../../core/main_failures.dart';
-import '../../domain/entroll/i_entroll_repo.dart';
 
-@LazySingleton(as: IEntroll)
-class EntrollRepository implements IEntroll {
+@LazySingleton(as: IGetWisdomVoice)
+class GetWisdomOfSkyRepository implements IGetWisdomVoice {
   @override
-  Future<Either<MainFailure, Entroll>> entroll({
-    required String id,
-  }) async {
+  Future<Either<MainFailure, VoiceData>> getWisdomVoice() async {
     var dio = Dio();
 
     final bearToken = await getTokenFromSS(secureStoreKey);
@@ -24,17 +20,15 @@ class EntrollRepository implements IEntroll {
       'Authorization': 'Bearer $bearToken',
       'Content-Type': 'application/json',
     };
-    log("id : $id");
+
     try {
-      final response = await dio.post(EndPoints.entroll,
-          data: {
-            'programe_name': id,
-          },
+      final response = await dio.get(
+          "https://gurujisanjeevkrishna.com/api/get-sky-wisdome",
           options: Options(headers: headers));
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final entrollResult = Entroll.fromJson(response.data);
-        log(entrollResult.message.toString());
+        final entrollResult = VoiceData.fromJson(response.data);
+        log(entrollResult.toString());
 
         return Right(entrollResult);
       } else {

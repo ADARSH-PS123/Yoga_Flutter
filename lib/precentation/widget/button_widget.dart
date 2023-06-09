@@ -14,10 +14,10 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      padding: const EdgeInsets.all(8),
+      width: 250,
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(27),
+        borderRadius: BorderRadius.circular(22),
         gradient: const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -48,8 +48,8 @@ class ButtonWidget extends StatelessWidget {
         onPressed: voidCallback,
         child: isLoading
             ? const SizedBox(
-                height: 30,
-                width: 30,
+                height: 20,
+                width: 20,
                 child: Center(
                   child: CircularProgressIndicator(
                     color: Colors.white,
@@ -59,9 +59,10 @@ class ButtonWidget extends StatelessWidget {
             : Text(
                 buttonName,
                 style: const TextStyle(
+                  fontFamily: "Nexa",
                   color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 18,
                 ),
               ),
       ),

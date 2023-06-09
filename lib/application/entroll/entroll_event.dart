@@ -5,4 +5,6 @@ class EntrollEvent with _$EntrollEvent {
   const factory EntrollEvent.entroll({
     required String id,
   }) = _Entroll;
+
+  const factory EntrollEvent.getlist() = _Getlist;
 }
