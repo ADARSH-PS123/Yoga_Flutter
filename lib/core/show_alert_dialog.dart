@@ -1,12 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-
 class AppAlerts {
-
-
   // void showLogoutAlertDialog(BuildContext context) {
   //   showDialog(
   //     context: context,
@@ -64,11 +59,11 @@ class AppAlerts {
       builder: (BuildContext context) {
         return AlertWidget(
           title: "Exit App",
-          content: 'Are you sure you want to exit from whizapp?',
+          content: 'Are you sure you want to exit from Sanjeevkrishna App?',
           acton: TextButton(
             child: const Text('Yes! ok'),
             onPressed: () {
-               SystemNavigator.pop();
+              SystemNavigator.pop();
             },
           ),
         );

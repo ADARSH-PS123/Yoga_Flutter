@@ -44,7 +44,7 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
               itemBuilder: (BuildContext context, int index) {
                 return Image.asset(
                   images[index],
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fitWidth,
                 );
               },
               onPageChanged: (value) {
@@ -62,14 +62,12 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
                 images.length,
                 (index) => AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.only(
-                      right: 12, top: 15, bottom: 10),
+                  margin: const EdgeInsets.only(right: 12, top: 15, bottom: 10),
                   height: index == sliderindex ? 15 : 8,
                   width: 8,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
-                    color:
-                        index == sliderindex ? Colors.grey : Colors.grey,
+                    color: index == sliderindex ? Colors.grey : Colors.grey,
                   ),
                 ),
               ),
@@ -106,6 +104,7 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
                         builder: (context) => const LoginOptionsPage(),
                       ));
                     }),
+                const SizedBox(height: 10),
                 InkWell(
                   onTap: () {
                     Navigator.of(context).pushReplacement(
@@ -114,10 +113,12 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
                       ),
                     );
                   },
-                  child: Text(
-                    'Dont have an acoount ? Sign Up',
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
+                  child: const Text('Dont have an acoount ? Sign Up',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      )),
                 )
               ],
             ),

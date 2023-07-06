@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/register/register_bloc.dart';
 import 'package:yoga/precentation/common_widget/custom_snackbar.dart';
-import 'package:yoga/precentation/pogramms/pogramms_page.dart';
+import 'package:yoga/precentation/initialize/initialize.dart';
 import 'package:yoga/precentation/widget/button_widget.dart';
 import 'package:yoga/precentation/widgets/text_form_feild.dart';
 import '../../core/constants.dart';
@@ -30,7 +30,7 @@ class _SignupPageState extends State<SignupPage> {
     'Online',
     'Offline',
   ];
-  String? selectedValue;
+  String selectedValue = "Online";
 
   @override
   Widget build(BuildContext context) {
@@ -214,10 +214,11 @@ class _SignupPageState extends State<SignupPage> {
                           Colors.black,
                         );
 
-                        Navigator.of(context).pushReplacement(
+                        Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                            builder: (context) => const ProgrammsPage(),
+                            builder: (context) => const Initialize(),
                           ),
+                          (route) => false,
                         );
                       }
                     },
@@ -237,7 +238,7 @@ class _SignupPageState extends State<SignupPage> {
                                         mobiletextEditingController.value.text,
                                     name:
                                         "${firstNametextEditingController.value.text} ${lastNametextEditingController.value.text}",
-                                    userType: selectedValue ?? "Offline",
+                                    userType: selectedValue,
                                   ),
                                 );
                           }

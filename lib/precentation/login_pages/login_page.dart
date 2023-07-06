@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yoga/application/login/login_bloc.dart';
 import 'package:yoga/precentation/common_widget/custom_snackbar.dart';
-import 'package:yoga/precentation/onboarding/onboarding_page.dart';
-import 'package:yoga/precentation/pogramms/pogramms_page.dart';
 import 'package:yoga/precentation/widgets/text_form_feild.dart';
 
 import '../../core/constants.dart';
 import '../../core/secure_storage.dart';
+import '../initialize/initialize.dart';
 import '../widget/button_widget.dart';
 
 class LoginOptionsPage extends StatelessWidget {
@@ -99,10 +98,11 @@ class LoginOptionsPage extends StatelessWidget {
                           Colors.black,
                         );
 
-                        Navigator.of(context).pushReplacement(
+                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                            builder: (context) => const ProgrammsPage(),
+                            builder: (context) => const Initialize(),
                           ),
+                          (route) => false,
                         );
                       }
                     },

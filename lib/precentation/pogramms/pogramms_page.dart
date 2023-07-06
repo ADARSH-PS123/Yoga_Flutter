@@ -23,9 +23,34 @@ class ProgrammsPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Image.asset(
-            "asset/image_pograms.jpg",
-            fit: BoxFit.fill,
+          Stack(
+            children: [
+              Image.asset(
+                "asset/image_pograms.jpg",
+                fit: BoxFit.fill,
+              ),
+              // Positioned(
+              //     right: 20,
+              //     top: 35,
+              //     child: InkWell(
+              //       onTap: (){
+
+              //       },
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(100),
+              //           color: Colors.black.withOpacity(0.5),
+              //         ),
+              //         child: const Padding(
+              //           padding: EdgeInsets.all(8.0),
+              //           child: Icon(
+              //             Icons.menu_rounded,
+              //             color: Colors.white,
+              //           ),
+              //         ),
+              //       ),
+              //     )),
+            ],
           ),
           const Divider(
             color: Colors.white,

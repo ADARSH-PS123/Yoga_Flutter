@@ -6,14 +6,14 @@ class ProgrammItem extends StatelessWidget {
   final String name;
   final Color? color;
   final bool isVoice;
-  final double ? width;
+  final double? height;
   const ProgrammItem({
     required this.imgUrl,
     required this.name,
     required this.isVoice,
     this.color,
     super.key,
-    this.width,
+    this.height,
   });
 
   @override
@@ -23,8 +23,8 @@ class ProgrammItem extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: const Color(0xff4D5D81)),
-      width:width?? 150,
-      height: 150,
+      width: 150,
+      height: height?? 150,
       child: Column(
         children: [
           Expanded(
@@ -45,7 +45,7 @@ class ProgrammItem extends StatelessWidget {
                   topStart: Radius.circular(6),
                   topEnd: Radius.circular(6),
                 ),
-                child: !isVoice 
+                child: !isVoice
                     ? Image.asset(
                         imgUrl,
                         fit: BoxFit.cover,
