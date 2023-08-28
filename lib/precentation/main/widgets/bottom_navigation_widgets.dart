@@ -10,24 +10,26 @@ class BottomWidget extends StatelessWidget {
     return ValueListenableBuilder(
         valueListenable: selectedIndexNorifier,
         builder: (context, int index, _) {
-          return BottomAppBar(
-            color: Colors.transparent,
-            elevation: 0,
-            height: 80,
-            child: Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), color: Colors.white),
-              child: const Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  NavigationItem(iconName: "asset/icon/home.png", id: 0),
-                  NavigationItem(iconName: "asset/icon/voice.png", id: 1),
-                  NavigationItem(iconName: "asset/icon/sky.png", id: 2),
-                  NavigationItem(iconName: "asset/icon/yoga.png", id: 3),
-                  NavigationItem(iconName: "asset/icon/book.png", id: 4),
-                ],
+          return SafeArea(
+            child: BottomAppBar(
+              color: Colors.transparent,
+              elevation: 0,
+              height: 80,
+              child: Container(
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: const Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    NavigationItem(iconName: "asset/icon/home.png", id: 0),
+                    NavigationItem(iconName: "asset/icon/voice.png", id: 1),
+                    NavigationItem(iconName: "asset/icon/sky.png", id: 2),
+                    NavigationItem(iconName: "asset/icon/yoga.png", id: 3),
+                  ],
+                ),
               ),
             ),
           );

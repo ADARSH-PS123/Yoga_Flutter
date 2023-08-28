@@ -11,6 +11,7 @@ class Program {
   final Color bgColor;
   final Color? txtColor;
   final bool showTitle;
+  final Prize? prize;
 
   const Program({
     this.description,
@@ -19,9 +20,23 @@ class Program {
     this.mainTitle,
     this.subTitle,
     this.linearGradient,
-   required this.bgColor,
+    required this.bgColor,
     this.txtColor,
-   required this.showTitle,
+    required this.showTitle,
+    this.prize,
+  });
+}
+
+// final String prizePerSession;
+// final String totalPrize;
+// final String numberOfSession;
+
+class Prize {
+  final Map<String, dynamic> offline;
+  final Map<String, dynamic> online;
+  const Prize({
+    required this.offline,
+    required this.online,
   });
 }
 
@@ -47,6 +62,14 @@ List<Program> p = const [
     mainTitle: "Kalari",
     // subTitle: "",
     id: "Kalari",
+    prize: Prize(
+      offline: {
+        "pr": "90",
+        "to": "800",
+        "no": "10",
+      },
+      online: {},
+    ),
   ),
   Program(
     showTitle: false,
@@ -69,6 +92,14 @@ List<Program> p = const [
     mainTitle: "Hatha Yoga Ladies",
     // subTitle: "",
     id: "Hatha Yoga Ladies",
+    prize: Prize(
+      offline: {},
+      online: {
+        "pr": "90",
+        "to": "800",
+        "no": "10",
+      },
+    ),
   ),
   Program(
     showTitle: false,
@@ -91,9 +122,21 @@ List<Program> p = const [
     mainTitle: "Pre-natal Yoga",
     // subTitle: "",
     id: "Pre-natal Yoga",
+    prize: Prize(
+      offline: {
+        "pr": "110",
+        "to": "1000",
+        "no": "10",
+      },
+      online: {
+        "pr": "90",
+        "to": "800",
+        "no": "10",
+      },
+    ),
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xff927297),
     txtColor: Colors.white,
     linearGradient: LinearGradient(
@@ -113,9 +156,17 @@ List<Program> p = const [
     mainTitle: "Power Children's Program",
     // subTitle: "",
     id: "power",
+    prize: Prize(
+      offline: {
+        "pr": "70",
+        "to": "600",
+        "no": "10",
+      },
+      online: {},
+    ),
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xffB9A896),
     txtColor: Colors.black,
     linearGradient: LinearGradient(
@@ -135,9 +186,17 @@ List<Program> p = const [
     mainTitle: "Yoga Nidra",
     // subTitle: "",
     id: "Yoga Nidra",
+    prize: Prize(
+      offline: {},
+      online: {
+        "pr": "20",
+        "to": "1000",
+        "no": "5",
+      },
+    ),
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xff879001),
     txtColor: Colors.white,
     linearGradient: LinearGradient(
@@ -154,12 +213,22 @@ List<Program> p = const [
     image: "asset/image/17-min.png",
     description:
         'A master program at Sanjeev Krishna yoga Conducted by Sanjeev Krishna himself. Awaken the inner University within and Know the world through your divine eyesA program that opens up  the highest potential , to realize and succeed.DURATION Special 10  day wellness course 2 hours each day followed by healthy juices and treats .CONTENT Health rejuvenation combined with energising breathing techniques followed by meditation. A Mind setter to succeed and celebrate  every moment in life.Detoxify and be reborn to a new you.  Experience a world of difference in relationships, concepts of food and Wellbeing  at all levels. An exciting ten days for a life time knowledge and wisdom. Thousands across the globe has benefited.',
-    mainTitle:"Rhythm Of Life",
+    mainTitle: "Rhythm Of Life",
     // subTitle: "",
     id: "Rhythm Of Life",
+    prize: Prize(
+      offline: {
+        "pr": "260",
+        "to": "2600",
+        "no": "10",
+        "note":
+            "10 DAYS TWO HOURS EACH( NINE DAYS ),(ONE WEEKEND SESSION 6 HOURS ) TOTAL 24 HOURS INCLUDING FRESH HEALTHY JUICES AND EATS AND PROGRAM  MANUAL ALTOGETHER \$ 2600 PACKAGE"
+      },
+      online: {},
+    ),
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xff7D83BD),
     txtColor: Colors.black,
     linearGradient: LinearGradient(
@@ -179,9 +248,17 @@ List<Program> p = const [
     mainTitle: "Sky",
     // subTitle: "",
     id: "sky",
+    prize: Prize(
+      offline: {},
+      online: {
+        "pr": "20",
+        "to": "1000",
+        "no": "5",
+      },
+    ),
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xffBBC1CD),
     txtColor: Colors.black,
     linearGradient: LinearGradient(
@@ -201,9 +278,19 @@ List<Program> p = const [
     mainTitle: "Yoga Teacher",
     // subTitle: "",
     id: "Yoga Teacher",
+    prize: Prize(
+      offline: {
+        "pr": "0",
+        "to": "",
+        "no": "6 Months (300 hours)",
+        "note":
+            "6 MONTHS ( 300 HOURS), ACCREDITATION FROM CYAI (COUNCIL FOR YOGA ACCREDITATION INTERNATIONAL CERTIFIED)"
+      },
+      online: {},
+    ),
   ),
   Program(
-     showTitle: true,
+    showTitle: true,
     bgColor: Color(0xFF9F5C7B),
     txtColor: Colors.white,
     linearGradient: LinearGradient(
@@ -225,7 +312,7 @@ List<Program> p = const [
     id: "PERSONAL SESSION YOGAA",
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xFF734A4E),
     txtColor: Colors.white,
     linearGradient: LinearGradient(
@@ -247,7 +334,7 @@ List<Program> p = const [
     id: "therapeutic",
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xFF8D8A85),
     txtColor: Colors.white,
     linearGradient: LinearGradient(
@@ -266,7 +353,7 @@ List<Program> p = const [
     id: "sky",
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xFFDADBD6),
     txtColor: Colors.black,
     linearGradient: LinearGradient(
@@ -285,12 +372,8 @@ List<Program> p = const [
     // subTitle: "",
     id: "sky",
   ),
-
-
-
-
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xFFDADBD6),
     txtColor: Colors.black,
     linearGradient: LinearGradient(
@@ -309,7 +392,7 @@ List<Program> p = const [
     id: "PERSONAL SESSION YOGAA",
   ),
   Program(
-     showTitle: false,
+    showTitle: false,
     bgColor: Color(0xFFCCCCCC),
     txtColor: Colors.black,
     linearGradient: LinearGradient(

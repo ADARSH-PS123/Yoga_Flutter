@@ -6,6 +6,7 @@ import 'package:yoga/precentation/common_widget/custom_snackbar.dart';
 import 'package:yoga/precentation/widget/button_widget.dart';
 
 import '../../domain/entroll/model/list.dart';
+import '../widgets/popup_widget.dart';
 
 class ProgramDetailsPage extends StatelessWidget {
   final Program programs;
@@ -147,28 +148,31 @@ class ProgramDetailsPage extends StatelessWidget {
                               }
                             } else {
                               return ButtonWidget(
-                                buttonName: "REGISTER NOW",
-                                voidCallback: () {
-                                  context.read<EntrollBloc>().add(
-                                        EntrollEvent.entroll(
-                                          id: programs.mainTitle.toString(),
-                                        ),
-                                      );
-                                },
-                                isLoading: state.isLoading,
-                              );
+                                  buttonName: "REGISTER NOW",
+                                  voidCallback: () {
+                                    // context.read<EntrollBloc>().add(
+                                    //       EntrollEvent.entroll(
+                                    //         id: programs.mainTitle.toString(),
+                                    //       ),
+                                    //     );
+                                    showPopup(context, programs.prize!);
+                                  },
+                                  isLoading: false);
                             }
                             return ButtonWidget(
-                              buttonName: "REGISTER NOW",
-                              voidCallback: () {
-                                context.read<EntrollBloc>().add(
-                                      EntrollEvent.entroll(
-                                        id: programs.mainTitle.toString(),
-                                      ),
-                                    );
-                              },
-                              isLoading: state.isLoading,
-                            );
+                                buttonName: "REGISTER NOW",
+                                voidCallback: () {
+                                  // context.read<EntrollBloc>().add(
+                                  //       EntrollEvent.entroll(
+                                  //         id: programs.mainTitle.toString(),
+                                  //       ),
+                                  //     );
+                                  showPopup(
+                                      context,
+                                      programs.prize ??
+                                          const Prize(offline: {}, online: {}));
+                                },
+                                isLoading: false);
                           },
                         ),
                       ],

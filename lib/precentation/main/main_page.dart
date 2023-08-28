@@ -5,6 +5,7 @@ import 'package:yoga/precentation/pogramms/all_voice_page.dart';
 import '../../core/constants.dart';
 import '../../core/secure_storage.dart';
 import '../../core/show_alert_dialog.dart';
+import '../home.dart';
 import '../pogramms/all_programm.dart';
 import '../pogramms/all_sky_page.dart';
 import '../pogramms/pogramms_page.dart';
@@ -14,11 +15,11 @@ class MainPage extends StatelessWidget {
 
   static const List<Map<String, dynamic>> _pagesOptions =
       <Map<String, dynamic>>[
-    {"page": ProgrammsPage(), "appbar": null},
+    {"page": Home(), "appbar": null},
     {"page": AllVoicePage(), "appbar": AllVoiceAppBar()},
+    {"page": ProgrammsPage(), "appbar": null},
     {"page": AllSkyPage(), "appbar": AllSkyAppBar()},
     {"page": AllProgrammPage(), "appbar": AllProgrammAppBar()},
-    {"page": ProgrammsPage(), "appbar": null},
   ];
 
   @override
@@ -37,7 +38,9 @@ class MainPage extends StatelessWidget {
             return true;
           },
           child: Scaffold(
-            backgroundColor: const Color(0xFF927297),
+            backgroundColor: selectedIndexNorifier.value == 0
+                ? const Color(0xff01153A)
+                : const Color(0xFF927297),
             body: _pagesOptions.elementAt(index)["page"],
             appBar: _pagesOptions.elementAt(index)["appbar"],
             bottomNavigationBar: const BottomWidget(),
