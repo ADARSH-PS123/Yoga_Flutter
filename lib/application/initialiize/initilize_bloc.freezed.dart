@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'initilize_bloc.dart';
 
@@ -25,9 +25,9 @@ mixin _$InitilizeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool connectionstatus)? contectionChanged,
-    TResult Function()? connectionCheck,
+    TResult? Function()? initial,
+    TResult? Function(bool connectionstatus)? contectionChanged,
+    TResult? Function()? connectionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$InitilizeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ContectionChanged value)? contectionChanged,
-    TResult Function(_ConnectionCheck value)? connectionCheck,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ContectionChanged value)? contectionChanged,
+    TResult? Function(_ConnectionCheck value)? connectionCheck,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$InitilizeEvent {
 abstract class $InitilizeEventCopyWith<$Res> {
   factory $InitilizeEventCopyWith(
           InitilizeEvent value, $Res Function(InitilizeEvent) then) =
-      _$InitilizeEventCopyWithImpl<$Res>;
+      _$InitilizeEventCopyWithImpl<$Res, InitilizeEvent>;
 }
 
 /// @nodoc
-class _$InitilizeEventCopyWithImpl<$Res>
+class _$InitilizeEventCopyWithImpl<$Res, $Val extends InitilizeEvent>
     implements $InitilizeEventCopyWith<$Res> {
   _$InitilizeEventCopyWithImpl(this._value, this._then);
 
-  final InitilizeEvent _value;
   // ignore: unused_field
-  final $Res Function(InitilizeEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -87,13 +88,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$InitilizeEventCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$InitilizeEventCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -128,9 +127,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool connectionstatus)? contectionChanged,
-    TResult Function()? connectionCheck,
+    TResult? Function()? initial,
+    TResult? Function(bool connectionstatus)? contectionChanged,
+    TResult? Function()? connectionCheck,
   }) {
     return initial?.call();
   }
@@ -162,9 +161,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ContectionChanged value)? contectionChanged,
-    TResult Function(_ConnectionCheck value)? connectionCheck,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ContectionChanged value)? contectionChanged,
+    TResult? Function(_ConnectionCheck value)? connectionCheck,
   }) {
     return initial?.call(this);
   }
@@ -193,26 +192,25 @@ abstract class _$$_ContectionChangedCopyWith<$Res> {
   factory _$$_ContectionChangedCopyWith(_$_ContectionChanged value,
           $Res Function(_$_ContectionChanged) then) =
       __$$_ContectionChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool connectionstatus});
 }
 
 /// @nodoc
 class __$$_ContectionChangedCopyWithImpl<$Res>
-    extends _$InitilizeEventCopyWithImpl<$Res>
+    extends _$InitilizeEventCopyWithImpl<$Res, _$_ContectionChanged>
     implements _$$_ContectionChangedCopyWith<$Res> {
   __$$_ContectionChangedCopyWithImpl(
       _$_ContectionChanged _value, $Res Function(_$_ContectionChanged) _then)
-      : super(_value, (v) => _then(v as _$_ContectionChanged));
+      : super(_value, _then);
 
-  @override
-  _$_ContectionChanged get _value => super._value as _$_ContectionChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? connectionstatus = freezed,
+    Object? connectionstatus = null,
   }) {
     return _then(_$_ContectionChanged(
-      connectionstatus: connectionstatus == freezed
+      connectionstatus: null == connectionstatus
           ? _value.connectionstatus
           : connectionstatus // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -238,16 +236,16 @@ class _$_ContectionChanged implements _ContectionChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ContectionChanged &&
-            const DeepCollectionEquality()
-                .equals(other.connectionstatus, connectionstatus));
+            (identical(other.connectionstatus, connectionstatus) ||
+                other.connectionstatus == connectionstatus));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(connectionstatus));
+  int get hashCode => Object.hash(runtimeType, connectionstatus);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContectionChangedCopyWith<_$_ContectionChanged> get copyWith =>
       __$$_ContectionChangedCopyWithImpl<_$_ContectionChanged>(
           this, _$identity);
@@ -265,9 +263,9 @@ class _$_ContectionChanged implements _ContectionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool connectionstatus)? contectionChanged,
-    TResult Function()? connectionCheck,
+    TResult? Function()? initial,
+    TResult? Function(bool connectionstatus)? contectionChanged,
+    TResult? Function()? connectionCheck,
   }) {
     return contectionChanged?.call(connectionstatus);
   }
@@ -299,9 +297,9 @@ class _$_ContectionChanged implements _ContectionChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ContectionChanged value)? contectionChanged,
-    TResult Function(_ConnectionCheck value)? connectionCheck,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ContectionChanged value)? contectionChanged,
+    TResult? Function(_ConnectionCheck value)? connectionCheck,
   }) {
     return contectionChanged?.call(this);
   }
@@ -325,7 +323,7 @@ abstract class _ContectionChanged implements InitilizeEvent {
   const factory _ContectionChanged({required final bool connectionstatus}) =
       _$_ContectionChanged;
 
-  bool get connectionstatus => throw _privateConstructorUsedError;
+  bool get connectionstatus;
   @JsonKey(ignore: true)
   _$$_ContectionChangedCopyWith<_$_ContectionChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -340,14 +338,11 @@ abstract class _$$_ConnectionCheckCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ConnectionCheckCopyWithImpl<$Res>
-    extends _$InitilizeEventCopyWithImpl<$Res>
+    extends _$InitilizeEventCopyWithImpl<$Res, _$_ConnectionCheck>
     implements _$$_ConnectionCheckCopyWith<$Res> {
   __$$_ConnectionCheckCopyWithImpl(
       _$_ConnectionCheck _value, $Res Function(_$_ConnectionCheck) _then)
-      : super(_value, (v) => _then(v as _$_ConnectionCheck));
-
-  @override
-  _$_ConnectionCheck get _value => super._value as _$_ConnectionCheck;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -382,9 +377,9 @@ class _$_ConnectionCheck implements _ConnectionCheck {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool connectionstatus)? contectionChanged,
-    TResult Function()? connectionCheck,
+    TResult? Function()? initial,
+    TResult? Function(bool connectionstatus)? contectionChanged,
+    TResult? Function()? connectionCheck,
   }) {
     return connectionCheck?.call();
   }
@@ -416,9 +411,9 @@ class _$_ConnectionCheck implements _ConnectionCheck {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ContectionChanged value)? contectionChanged,
-    TResult Function(_ConnectionCheck value)? connectionCheck,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ContectionChanged value)? contectionChanged,
+    TResult? Function(_ConnectionCheck value)? connectionCheck,
   }) {
     return connectionCheck?.call(this);
   }
@@ -457,39 +452,42 @@ mixin _$InitilizeState {
 abstract class $InitilizeStateCopyWith<$Res> {
   factory $InitilizeStateCopyWith(
           InitilizeState value, $Res Function(InitilizeState) then) =
-      _$InitilizeStateCopyWithImpl<$Res>;
+      _$InitilizeStateCopyWithImpl<$Res, InitilizeState>;
+  @useResult
   $Res call({bool isLoading, bool isToken, bool connectionStatus});
 }
 
 /// @nodoc
-class _$InitilizeStateCopyWithImpl<$Res>
+class _$InitilizeStateCopyWithImpl<$Res, $Val extends InitilizeState>
     implements $InitilizeStateCopyWith<$Res> {
   _$InitilizeStateCopyWithImpl(this._value, this._then);
 
-  final InitilizeState _value;
   // ignore: unused_field
-  final $Res Function(InitilizeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isToken = freezed,
-    Object? connectionStatus = freezed,
+    Object? isLoading = null,
+    Object? isToken = null,
+    Object? connectionStatus = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isToken: isToken == freezed
+      isToken: null == isToken
           ? _value.isToken
           : isToken // ignore: cast_nullable_to_non_nullable
               as bool,
-      connectionStatus: connectionStatus == freezed
+      connectionStatus: null == connectionStatus
           ? _value.connectionStatus
           : connectionStatus // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -500,36 +498,35 @@ abstract class _$$_InitilizeStateCopyWith<$Res>
           _$_InitilizeState value, $Res Function(_$_InitilizeState) then) =
       __$$_InitilizeStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool isLoading, bool isToken, bool connectionStatus});
 }
 
 /// @nodoc
 class __$$_InitilizeStateCopyWithImpl<$Res>
-    extends _$InitilizeStateCopyWithImpl<$Res>
+    extends _$InitilizeStateCopyWithImpl<$Res, _$_InitilizeState>
     implements _$$_InitilizeStateCopyWith<$Res> {
   __$$_InitilizeStateCopyWithImpl(
       _$_InitilizeState _value, $Res Function(_$_InitilizeState) _then)
-      : super(_value, (v) => _then(v as _$_InitilizeState));
+      : super(_value, _then);
 
-  @override
-  _$_InitilizeState get _value => super._value as _$_InitilizeState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isToken = freezed,
-    Object? connectionStatus = freezed,
+    Object? isLoading = null,
+    Object? isToken = null,
+    Object? connectionStatus = null,
   }) {
     return _then(_$_InitilizeState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isToken: isToken == freezed
+      isToken: null == isToken
           ? _value.isToken
           : isToken // ignore: cast_nullable_to_non_nullable
               as bool,
-      connectionStatus: connectionStatus == freezed
+      connectionStatus: null == connectionStatus
           ? _value.connectionStatus
           : connectionStatus // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -562,21 +559,20 @@ class _$_InitilizeState implements _InitilizeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InitilizeState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isToken, isToken) &&
-            const DeepCollectionEquality()
-                .equals(other.connectionStatus, connectionStatus));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isToken, isToken) || other.isToken == isToken) &&
+            (identical(other.connectionStatus, connectionStatus) ||
+                other.connectionStatus == connectionStatus));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isToken),
-      const DeepCollectionEquality().hash(connectionStatus));
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, isToken, connectionStatus);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InitilizeStateCopyWith<_$_InitilizeState> get copyWith =>
       __$$_InitilizeStateCopyWithImpl<_$_InitilizeState>(this, _$identity);
 }
@@ -588,11 +584,11 @@ abstract class _InitilizeState implements InitilizeState {
       required final bool connectionStatus}) = _$_InitilizeState;
 
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  bool get isToken => throw _privateConstructorUsedError;
+  bool get isToken;
   @override
-  bool get connectionStatus => throw _privateConstructorUsedError;
+  bool get connectionStatus;
   @override
   @JsonKey(ignore: true)
   _$$_InitilizeStateCopyWith<_$_InitilizeState> get copyWith =>

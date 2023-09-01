@@ -16,9 +16,10 @@ class LoginOptionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailtextEditingController = TextEditingController();
+    TextEditingController emailtextEditingController =
+        TextEditingController(text: "guruji@gmail.com");
     TextEditingController passwordtextEditingController =
-        TextEditingController();
+        TextEditingController(text: '12345678');
     final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -92,13 +93,13 @@ class LoginOptionsPage extends StatelessWidget {
                         addTokenToSS(secureStoreKey,
                             state.authDetails!.token.toString());
 
-                             CustomSnackBar.show(
+                        CustomSnackBar.show(
                           context,
                           'You are successfully logged in! 🥳',
                           Colors.black,
                         );
 
-                       Navigator.of(context).pushAndRemoveUntil(
+                        Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
                             builder: (context) => const Initialize(),
                           ),

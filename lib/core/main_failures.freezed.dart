@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main_failures.dart';
 
@@ -25,9 +25,9 @@ mixin _$MainFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    TResult Function()? unauthorized,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
+    TResult? Function()? unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$MainFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    TResult Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_Unauthorized value)? unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,16 +66,18 @@ mixin _$MainFailure {
 abstract class $MainFailureCopyWith<$Res> {
   factory $MainFailureCopyWith(
           MainFailure value, $Res Function(MainFailure) then) =
-      _$MainFailureCopyWithImpl<$Res>;
+      _$MainFailureCopyWithImpl<$Res, MainFailure>;
 }
 
 /// @nodoc
-class _$MainFailureCopyWithImpl<$Res> implements $MainFailureCopyWith<$Res> {
+class _$MainFailureCopyWithImpl<$Res, $Val extends MainFailure>
+    implements $MainFailureCopyWith<$Res> {
   _$MainFailureCopyWithImpl(this._value, this._then);
 
-  final MainFailure _value;
   // ignore: unused_field
-  final $Res Function(MainFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -87,14 +89,11 @@ abstract class _$$_ClientFailureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ClientFailureCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res>
+    extends _$MainFailureCopyWithImpl<$Res, _$_ClientFailure>
     implements _$$_ClientFailureCopyWith<$Res> {
   __$$_ClientFailureCopyWithImpl(
       _$_ClientFailure _value, $Res Function(_$_ClientFailure) _then)
-      : super(_value, (v) => _then(v as _$_ClientFailure));
-
-  @override
-  _$_ClientFailure get _value => super._value as _$_ClientFailure;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -129,9 +128,9 @@ class _$_ClientFailure implements _ClientFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    TResult Function()? unauthorized,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
+    TResult? Function()? unauthorized,
   }) {
     return clientFailure?.call();
   }
@@ -163,9 +162,9 @@ class _$_ClientFailure implements _ClientFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    TResult Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_Unauthorized value)? unauthorized,
   }) {
     return clientFailure?.call(this);
   }
@@ -198,14 +197,11 @@ abstract class _$$_ServerFailureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ServerFailureCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res>
+    extends _$MainFailureCopyWithImpl<$Res, _$_ServerFailure>
     implements _$$_ServerFailureCopyWith<$Res> {
   __$$_ServerFailureCopyWithImpl(
       _$_ServerFailure _value, $Res Function(_$_ServerFailure) _then)
-      : super(_value, (v) => _then(v as _$_ServerFailure));
-
-  @override
-  _$_ServerFailure get _value => super._value as _$_ServerFailure;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -240,9 +236,9 @@ class _$_ServerFailure implements _ServerFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    TResult Function()? unauthorized,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
+    TResult? Function()? unauthorized,
   }) {
     return serverFailure?.call();
   }
@@ -274,9 +270,9 @@ class _$_ServerFailure implements _ServerFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    TResult Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_Unauthorized value)? unauthorized,
   }) {
     return serverFailure?.call(this);
   }
@@ -309,14 +305,11 @@ abstract class _$$_UnauthorizedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res>
+    extends _$MainFailureCopyWithImpl<$Res, _$_Unauthorized>
     implements _$$_UnauthorizedCopyWith<$Res> {
   __$$_UnauthorizedCopyWithImpl(
       _$_Unauthorized _value, $Res Function(_$_Unauthorized) _then)
-      : super(_value, (v) => _then(v as _$_Unauthorized));
-
-  @override
-  _$_Unauthorized get _value => super._value as _$_Unauthorized;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -351,9 +344,9 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    TResult Function()? unauthorized,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
+    TResult? Function()? unauthorized,
   }) {
     return unauthorized?.call();
   }
@@ -385,9 +378,9 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    TResult Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_Unauthorized value)? unauthorized,
   }) {
     return unauthorized?.call(this);
   }

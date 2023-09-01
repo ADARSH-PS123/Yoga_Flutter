@@ -1,9 +1,13 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:yoga/domain/voice/model/voice.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:yoga/precentation/widgets/button_widget.dart';
+
+import '../payment/stripe_screen.dart';
 
 // import 'package:sqflite/sqflite.dart';
 // import 'package:path/path.dart';
@@ -20,8 +24,7 @@ class VoiceDetailsePage extends StatefulWidget {
 }
 
 class _VoiceDetailsePageState extends State<VoiceDetailsePage> {
-   String voiceDataUrl =
-      "https://gurujisanjeevkrishna.com/public/voice/sky-wisdome/20230514_645ff0490b35d.mp3";
+  String voiceDataUrl = "";
 
   final audioPlayer = AudioPlayer();
   bool isPlying = false;
@@ -43,32 +46,46 @@ class _VoiceDetailsePageState extends State<VoiceDetailsePage> {
     ].join(':');
   }
 
+  late StreamSubscription<PlayerState> playerStateSubscription;
+  late StreamSubscription<Duration> durationChangedSubscription;
+  late StreamSubscription<Duration> positionChangedSubscription;
+
   @override
   void initState() {
-    voiceDataUrl = "https://gurujisanjeevkrishna.com/${widget.voiceData.audio}";
+    
+      voiceDataUrl =
+          "https://gurujisanjeevkrishna.com/${widget.voiceData.audio}";
 
-    audioPlayer.onPlayerStateChanged.listen((event) {
-      setState(() {
-        isPlying = event == PlayerState.playing;
+      playerStateSubscription =
+          audioPlayer.onPlayerStateChanged.listen((event) {
+        setState(() {
+          isPlying = event == PlayerState.playing;
+        });
       });
-    });
 
-    audioPlayer.onDurationChanged.listen((newDuration) {
-      setState(() {
-        duration = newDuration;
+      durationChangedSubscription =
+          audioPlayer.onDurationChanged.listen((newDuration) {
+        setState(() {
+          duration = newDuration;
+        });
       });
-    });
 
-    audioPlayer.onPositionChanged.listen((newPosition) {
-      setState(() {
-        position = newPosition;
+      positionChangedSubscription =
+          audioPlayer.onPositionChanged.listen((newPosition) {
+        setState(() {
+          position = newPosition;
+        });
       });
-    });
+    
+
     super.initState();
   }
 
   @override
   void dispose() {
+    playerStateSubscription.cancel();
+    durationChangedSubscription.cancel();
+    positionChangedSubscription.cancel();
     audioPlayer
         .dispose(); // Dispose the audio player when the widget is disposed
     super.dispose();
@@ -132,97 +149,122 @@ class _VoiceDetailsePageState extends State<VoiceDetailsePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
-                    child: Column(
-                  children: [
-                    buildSlider(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(formatTime(duration)),
-                          Text(formatTime(duration - position)),
-                        ],
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        isLoading
-                            ? const SizedBox()
-                            : IconButton(
-                                color: Colors.white,
-                                onPressed: () async {
-                                  const leftPosition = Duration(seconds: 10);
-                                  await audioPlayer
-                                      .seek(position - leftPosition);
-                                  await audioPlayer.resume();
-                                },
-                                icon: const RotatedBox(
-                                  quarterTurns: 2,
-                                  child: Icon(
-                                    Icons.play_arrow,
-                                    textDirection: TextDirection.ltr,
-                                  ),
+                    child: widget.voiceData.types == "Premium"
+                        ? Column(
+                            children: [
+                              ButtonWidgets(
+                                  title: "Buy",
+                                  width: double.maxFinite,
+                                  onPressed: () {
+                                    Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            StripePaymentScreen(
+                                          amount: widget.voiceData.amount!,
+                                        ),
+                                      ),
+                                      (route) => false,
+                                    );
+                                  })
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              buildSlider(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 18),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(formatTime(duration)),
+                                    Text(formatTime(duration - position)),
+                                  ],
                                 ),
                               ),
-                        const SizedBox(width: 10),
-                        isLoading
-                            ? SizedBox(
-                                height: 20,
-                                width: 20,
-                                child: CircularProgressIndicator(
-                                  backgroundColor:
-                                      Colors.white.withOpacity(0.3),
-                                  color: Colors.white,
-                                ),
-                              )
-                            : IconButton(
-                                color: Colors.white,
-                                onPressed: () async {
-                                  if (isPlying) {
-                                    await audioPlayer.pause();
-                                  } else {
-                                    setState(() {
-                                      isLoading = true;
-                                    });
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  isLoading
+                                      ? const SizedBox()
+                                      : IconButton(
+                                          color: Colors.white,
+                                          onPressed: () async {
+                                            const leftPosition =
+                                                Duration(seconds: 10);
+                                            await audioPlayer
+                                                .seek(position - leftPosition);
+                                            await audioPlayer.resume();
+                                          },
+                                          icon: const RotatedBox(
+                                            quarterTurns: 2,
+                                            child: Icon(
+                                              Icons.play_arrow,
+                                              textDirection: TextDirection.ltr,
+                                            ),
+                                          ),
+                                        ),
+                                  const SizedBox(width: 10),
+                                  isLoading
+                                      ? SizedBox(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator(
+                                            backgroundColor:
+                                                Colors.white.withOpacity(0.3),
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      : IconButton(
+                                          color: Colors.white,
+                                          onPressed: () async {
+                                            if (isPlying) {
+                                              await audioPlayer.pause();
+                                            } else {
+                                              setState(() {
+                                                isLoading = true;
+                                              });
 
-                                    audioPlayer
-                                        .setSourceUrl(voiceDataUrl)
-                                        .then((value) async {
-                                      await audioPlayer.resume();
-                                      setState(() {
-                                        isLoading = false;
-                                      });
-                                    });
-                                  }
-                                },
-                                icon: Icon(
-                                  isPlying ? Icons.pause : Icons.play_arrow,
-                                ),
-                              ),
-                        const SizedBox(width: 10),
-                        isLoading
-                            ? const SizedBox()
-                            : IconButton(
-                                color: Colors.white,
-                                onPressed: () async {
-                                  const rightPosition = Duration(seconds: 10);
-                                  await audioPlayer
-                                      .seek(position + rightPosition);
-                                  await audioPlayer.resume();
-                                },
-                                icon: const Icon(
-                                  Icons.play_arrow,
-                                  textDirection: TextDirection.ltr,
-                                ),
-                              ),
-                      ],
-                    )
-                  ],
-                )),
+                                              audioPlayer
+                                                  .setSourceUrl(voiceDataUrl)
+                                                  .then((value) async {
+                                                await audioPlayer.resume();
+                                                setState(() {
+                                                  isLoading = false;
+                                                });
+                                              });
+                                            }
+                                          },
+                                          icon: Icon(
+                                            isPlying
+                                                ? Icons.pause
+                                                : Icons.play_arrow,
+                                          ),
+                                        ),
+                                  const SizedBox(width: 10),
+                                  isLoading
+                                      ? const SizedBox()
+                                      : IconButton(
+                                          color: Colors.white,
+                                          onPressed: () async {
+                                            const rightPosition =
+                                                Duration(seconds: 10);
+                                            await audioPlayer
+                                                .seek(position + rightPosition);
+                                            await audioPlayer.resume();
+                                          },
+                                          icon: const Icon(
+                                            Icons.play_arrow,
+                                            textDirection: TextDirection.ltr,
+                                          ),
+                                        ),
+                                ],
+                              )
+                            ],
+                          )),
               ),
             ),
           ],

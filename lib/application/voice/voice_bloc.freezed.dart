@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'voice_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$VoiceEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getVoiceofSky,
-    TResult Function()? getWisdomVoice,
+    TResult? Function()? getVoiceofSky,
+    TResult? Function()? getWisdomVoice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$VoiceEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetVoiceofSky value)? getVoiceofSky,
-    TResult Function(_GetWisdomVoice value)? getWisdomVoice,
+    TResult? Function(_GetVoiceofSky value)? getVoiceofSky,
+    TResult? Function(_GetWisdomVoice value)? getWisdomVoice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,16 +60,18 @@ mixin _$VoiceEvent {
 abstract class $VoiceEventCopyWith<$Res> {
   factory $VoiceEventCopyWith(
           VoiceEvent value, $Res Function(VoiceEvent) then) =
-      _$VoiceEventCopyWithImpl<$Res>;
+      _$VoiceEventCopyWithImpl<$Res, VoiceEvent>;
 }
 
 /// @nodoc
-class _$VoiceEventCopyWithImpl<$Res> implements $VoiceEventCopyWith<$Res> {
+class _$VoiceEventCopyWithImpl<$Res, $Val extends VoiceEvent>
+    implements $VoiceEventCopyWith<$Res> {
   _$VoiceEventCopyWithImpl(this._value, this._then);
 
-  final VoiceEvent _value;
   // ignore: unused_field
-  final $Res Function(VoiceEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -81,14 +83,11 @@ abstract class _$$_GetVoiceofSkyCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetVoiceofSkyCopyWithImpl<$Res>
-    extends _$VoiceEventCopyWithImpl<$Res>
+    extends _$VoiceEventCopyWithImpl<$Res, _$_GetVoiceofSky>
     implements _$$_GetVoiceofSkyCopyWith<$Res> {
   __$$_GetVoiceofSkyCopyWithImpl(
       _$_GetVoiceofSky _value, $Res Function(_$_GetVoiceofSky) _then)
-      : super(_value, (v) => _then(v as _$_GetVoiceofSky));
-
-  @override
-  _$_GetVoiceofSky get _value => super._value as _$_GetVoiceofSky;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -122,8 +121,8 @@ class _$_GetVoiceofSky implements _GetVoiceofSky {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getVoiceofSky,
-    TResult Function()? getWisdomVoice,
+    TResult? Function()? getVoiceofSky,
+    TResult? Function()? getWisdomVoice,
   }) {
     return getVoiceofSky?.call();
   }
@@ -153,8 +152,8 @@ class _$_GetVoiceofSky implements _GetVoiceofSky {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetVoiceofSky value)? getVoiceofSky,
-    TResult Function(_GetWisdomVoice value)? getWisdomVoice,
+    TResult? Function(_GetVoiceofSky value)? getVoiceofSky,
+    TResult? Function(_GetWisdomVoice value)? getWisdomVoice,
   }) {
     return getVoiceofSky?.call(this);
   }
@@ -186,14 +185,11 @@ abstract class _$$_GetWisdomVoiceCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetWisdomVoiceCopyWithImpl<$Res>
-    extends _$VoiceEventCopyWithImpl<$Res>
+    extends _$VoiceEventCopyWithImpl<$Res, _$_GetWisdomVoice>
     implements _$$_GetWisdomVoiceCopyWith<$Res> {
   __$$_GetWisdomVoiceCopyWithImpl(
       _$_GetWisdomVoice _value, $Res Function(_$_GetWisdomVoice) _then)
-      : super(_value, (v) => _then(v as _$_GetWisdomVoice));
-
-  @override
-  _$_GetWisdomVoice get _value => super._value as _$_GetWisdomVoice;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -227,8 +223,8 @@ class _$_GetWisdomVoice implements _GetWisdomVoice {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getVoiceofSky,
-    TResult Function()? getWisdomVoice,
+    TResult? Function()? getVoiceofSky,
+    TResult? Function()? getWisdomVoice,
   }) {
     return getWisdomVoice?.call();
   }
@@ -258,8 +254,8 @@ class _$_GetWisdomVoice implements _GetWisdomVoice {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetVoiceofSky value)? getVoiceofSky,
-    TResult Function(_GetWisdomVoice value)? getWisdomVoice,
+    TResult? Function(_GetVoiceofSky value)? getVoiceofSky,
+    TResult? Function(_GetWisdomVoice value)? getWisdomVoice,
   }) {
     return getWisdomVoice?.call(this);
   }
@@ -300,7 +296,8 @@ mixin _$VoiceState {
 abstract class $VoiceStateCopyWith<$Res> {
   factory $VoiceStateCopyWith(
           VoiceState value, $Res Function(VoiceState) then) =
-      _$VoiceStateCopyWithImpl<$Res>;
+      _$VoiceStateCopyWithImpl<$Res, VoiceState>;
+  @useResult
   $Res call(
       {bool isLoading,
       bool isError,
@@ -311,48 +308,51 @@ abstract class $VoiceStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$VoiceStateCopyWithImpl<$Res> implements $VoiceStateCopyWith<$Res> {
+class _$VoiceStateCopyWithImpl<$Res, $Val extends VoiceState>
+    implements $VoiceStateCopyWith<$Res> {
   _$VoiceStateCopyWithImpl(this._value, this._then);
 
-  final VoiceState _value;
   // ignore: unused_field
-  final $Res Function(VoiceState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? isWisdomData = freezed,
-    Object? isvoiceofskyData = freezed,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? isWisdomData = null,
+    Object? isvoiceofskyData = null,
     Object? wisdomVoice = freezed,
     Object? voiceOfSky = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      isWisdomData: isWisdomData == freezed
+      isWisdomData: null == isWisdomData
           ? _value.isWisdomData
           : isWisdomData // ignore: cast_nullable_to_non_nullable
               as bool,
-      isvoiceofskyData: isvoiceofskyData == freezed
+      isvoiceofskyData: null == isvoiceofskyData
           ? _value.isvoiceofskyData
           : isvoiceofskyData // ignore: cast_nullable_to_non_nullable
               as bool,
-      wisdomVoice: wisdomVoice == freezed
+      wisdomVoice: freezed == wisdomVoice
           ? _value.wisdomVoice
           : wisdomVoice // ignore: cast_nullable_to_non_nullable
               as VoiceData?,
-      voiceOfSky: voiceOfSky == freezed
+      voiceOfSky: freezed == voiceOfSky
           ? _value.voiceOfSky
           : voiceOfSky // ignore: cast_nullable_to_non_nullable
               as VoiceData?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -363,6 +363,7 @@ abstract class _$$_VoiceStateCopyWith<$Res>
           _$_VoiceState value, $Res Function(_$_VoiceState) then) =
       __$$_VoiceStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       bool isError,
@@ -373,46 +374,45 @@ abstract class _$$_VoiceStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_VoiceStateCopyWithImpl<$Res> extends _$VoiceStateCopyWithImpl<$Res>
+class __$$_VoiceStateCopyWithImpl<$Res>
+    extends _$VoiceStateCopyWithImpl<$Res, _$_VoiceState>
     implements _$$_VoiceStateCopyWith<$Res> {
   __$$_VoiceStateCopyWithImpl(
       _$_VoiceState _value, $Res Function(_$_VoiceState) _then)
-      : super(_value, (v) => _then(v as _$_VoiceState));
+      : super(_value, _then);
 
-  @override
-  _$_VoiceState get _value => super._value as _$_VoiceState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? isWisdomData = freezed,
-    Object? isvoiceofskyData = freezed,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? isWisdomData = null,
+    Object? isvoiceofskyData = null,
     Object? wisdomVoice = freezed,
     Object? voiceOfSky = freezed,
   }) {
     return _then(_$_VoiceState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      isWisdomData: isWisdomData == freezed
+      isWisdomData: null == isWisdomData
           ? _value.isWisdomData
           : isWisdomData // ignore: cast_nullable_to_non_nullable
               as bool,
-      isvoiceofskyData: isvoiceofskyData == freezed
+      isvoiceofskyData: null == isvoiceofskyData
           ? _value.isvoiceofskyData
           : isvoiceofskyData // ignore: cast_nullable_to_non_nullable
               as bool,
-      wisdomVoice: wisdomVoice == freezed
+      wisdomVoice: freezed == wisdomVoice
           ? _value.wisdomVoice
           : wisdomVoice // ignore: cast_nullable_to_non_nullable
               as VoiceData?,
-      voiceOfSky: voiceOfSky == freezed
+      voiceOfSky: freezed == voiceOfSky
           ? _value.voiceOfSky
           : voiceOfSky // ignore: cast_nullable_to_non_nullable
               as VoiceData?,
@@ -454,30 +454,26 @@ class _$_VoiceState implements _VoiceState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_VoiceState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isError, isError) &&
-            const DeepCollectionEquality()
-                .equals(other.isWisdomData, isWisdomData) &&
-            const DeepCollectionEquality()
-                .equals(other.isvoiceofskyData, isvoiceofskyData) &&
-            const DeepCollectionEquality()
-                .equals(other.wisdomVoice, wisdomVoice) &&
-            const DeepCollectionEquality()
-                .equals(other.voiceOfSky, voiceOfSky));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.isWisdomData, isWisdomData) ||
+                other.isWisdomData == isWisdomData) &&
+            (identical(other.isvoiceofskyData, isvoiceofskyData) ||
+                other.isvoiceofskyData == isvoiceofskyData) &&
+            (identical(other.wisdomVoice, wisdomVoice) ||
+                other.wisdomVoice == wisdomVoice) &&
+            (identical(other.voiceOfSky, voiceOfSky) ||
+                other.voiceOfSky == voiceOfSky));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isError),
-      const DeepCollectionEquality().hash(isWisdomData),
-      const DeepCollectionEquality().hash(isvoiceofskyData),
-      const DeepCollectionEquality().hash(wisdomVoice),
-      const DeepCollectionEquality().hash(voiceOfSky));
+  int get hashCode => Object.hash(runtimeType, isLoading, isError, isWisdomData,
+      isvoiceofskyData, wisdomVoice, voiceOfSky);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_VoiceStateCopyWith<_$_VoiceState> get copyWith =>
       __$$_VoiceStateCopyWithImpl<_$_VoiceState>(this, _$identity);
 }
@@ -492,17 +488,17 @@ abstract class _VoiceState implements VoiceState {
       required final VoiceData? voiceOfSky}) = _$_VoiceState;
 
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  bool get isError => throw _privateConstructorUsedError;
+  bool get isError;
   @override
-  bool get isWisdomData => throw _privateConstructorUsedError;
+  bool get isWisdomData;
   @override
-  bool get isvoiceofskyData => throw _privateConstructorUsedError;
+  bool get isvoiceofskyData;
   @override
-  VoiceData? get wisdomVoice => throw _privateConstructorUsedError;
+  VoiceData? get wisdomVoice;
   @override
-  VoiceData? get voiceOfSky => throw _privateConstructorUsedError;
+  VoiceData? get voiceOfSky;
   @override
   @JsonKey(ignore: true)
   _$$_VoiceStateCopyWith<_$_VoiceState> get copyWith =>

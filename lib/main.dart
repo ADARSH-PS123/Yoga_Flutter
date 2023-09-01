@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:yoga/application/initialiize/initilize_bloc.dart';
 import 'package:yoga/application/login/login_bloc.dart';
 import 'package:yoga/application/programms/programms_bloc.dart';
@@ -11,6 +12,9 @@ import 'application/entroll/entroll_bloc.dart';
 import 'application/register/register_bloc.dart';
 
 Future<void> main() async {
+
+   Stripe.publishableKey = "pk_test_51KKQLpL4wM4yRj76kwg9xw60zlIVdVudKIuXAebgUjwOrPw8hxGdhGkR93JazhQbskBwIoiUbiBZaL0EffVvfm1J00l9pjYkiU";
+   
   WidgetsFlutterBinding.ensureInitialized();
 
   await configureInjeactable();

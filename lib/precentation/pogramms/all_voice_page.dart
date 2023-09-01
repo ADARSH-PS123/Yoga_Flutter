@@ -12,6 +12,10 @@ class AllVoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<VoiceBloc>().add(const VoiceEvent.getVoiceofSky());
+      context.read<VoiceBloc>().add(const VoiceEvent.getWisdomVoice());
+    });
     return BlocBuilder<VoiceBloc, VoiceState>(
       builder: (context, state) {
         if (state.isLoading) {

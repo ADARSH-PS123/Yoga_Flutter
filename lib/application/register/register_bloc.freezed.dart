@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'register_bloc.dart';
 
@@ -30,7 +30,7 @@ mixin _$RegisterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, String name,
+    TResult? Function(String email, String password, String name,
             String userType, String mobile)?
         register,
   }) =>
@@ -50,7 +50,7 @@ mixin _$RegisterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RegisterValidation value)? register,
+    TResult? Function(_RegisterValidation value)? register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,7 +69,8 @@ mixin _$RegisterEvent {
 abstract class $RegisterEventCopyWith<$Res> {
   factory $RegisterEventCopyWith(
           RegisterEvent value, $Res Function(RegisterEvent) then) =
-      _$RegisterEventCopyWithImpl<$Res>;
+      _$RegisterEventCopyWithImpl<$Res, RegisterEvent>;
+  @useResult
   $Res call(
       {String email,
       String password,
@@ -79,44 +80,46 @@ abstract class $RegisterEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RegisterEventCopyWithImpl<$Res>
+class _$RegisterEventCopyWithImpl<$Res, $Val extends RegisterEvent>
     implements $RegisterEventCopyWith<$Res> {
   _$RegisterEventCopyWithImpl(this._value, this._then);
 
-  final RegisterEvent _value;
   // ignore: unused_field
-  final $Res Function(RegisterEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? name = freezed,
-    Object? userType = freezed,
-    Object? mobile = freezed,
+    Object? email = null,
+    Object? password = null,
+    Object? name = null,
+    Object? userType = null,
+    Object? mobile = null,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as String,
-      mobile: mobile == freezed
+      mobile: null == mobile
           ? _value.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -127,6 +130,7 @@ abstract class _$$_RegisterValidationCopyWith<$Res>
           $Res Function(_$_RegisterValidation) then) =
       __$$_RegisterValidationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String email,
       String password,
@@ -137,41 +141,39 @@ abstract class _$$_RegisterValidationCopyWith<$Res>
 
 /// @nodoc
 class __$$_RegisterValidationCopyWithImpl<$Res>
-    extends _$RegisterEventCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res, _$_RegisterValidation>
     implements _$$_RegisterValidationCopyWith<$Res> {
   __$$_RegisterValidationCopyWithImpl(
       _$_RegisterValidation _value, $Res Function(_$_RegisterValidation) _then)
-      : super(_value, (v) => _then(v as _$_RegisterValidation));
+      : super(_value, _then);
 
-  @override
-  _$_RegisterValidation get _value => super._value as _$_RegisterValidation;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? name = freezed,
-    Object? userType = freezed,
-    Object? mobile = freezed,
+    Object? email = null,
+    Object? password = null,
+    Object? name = null,
+    Object? userType = null,
+    Object? mobile = null,
   }) {
     return _then(_$_RegisterValidation(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as String,
-      mobile: mobile == freezed
+      mobile: null == mobile
           ? _value.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
               as String,
@@ -210,24 +212,22 @@ class _$_RegisterValidation implements _RegisterValidation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterValidation &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.userType, userType) &&
-            const DeepCollectionEquality().equals(other.mobile, mobile));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.userType, userType) ||
+                other.userType == userType) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(userType),
-      const DeepCollectionEquality().hash(mobile));
+  int get hashCode =>
+      Object.hash(runtimeType, email, password, name, userType, mobile);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RegisterValidationCopyWith<_$_RegisterValidation> get copyWith =>
       __$$_RegisterValidationCopyWithImpl<_$_RegisterValidation>(
           this, _$identity);
@@ -245,7 +245,7 @@ class _$_RegisterValidation implements _RegisterValidation {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, String name,
+    TResult? Function(String email, String password, String name,
             String userType, String mobile)?
         register,
   }) {
@@ -277,7 +277,7 @@ class _$_RegisterValidation implements _RegisterValidation {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RegisterValidation value)? register,
+    TResult? Function(_RegisterValidation value)? register,
   }) {
     return register?.call(this);
   }
@@ -304,15 +304,15 @@ abstract class _RegisterValidation implements RegisterEvent {
       required final String mobile}) = _$_RegisterValidation;
 
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get userType => throw _privateConstructorUsedError;
+  String get userType;
   @override
-  String get mobile => throw _privateConstructorUsedError;
+  String get mobile;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterValidationCopyWith<_$_RegisterValidation> get copyWith =>
@@ -335,7 +335,8 @@ mixin _$RegisterState {
 abstract class $RegisterStateCopyWith<$Res> {
   factory $RegisterStateCopyWith(
           RegisterState value, $Res Function(RegisterState) then) =
-      _$RegisterStateCopyWithImpl<$Res>;
+      _$RegisterStateCopyWithImpl<$Res, RegisterState>;
+  @useResult
   $Res call(
       {bool isLoading,
       bool isError,
@@ -344,39 +345,41 @@ abstract class $RegisterStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RegisterStateCopyWithImpl<$Res>
+class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     implements $RegisterStateCopyWith<$Res> {
   _$RegisterStateCopyWithImpl(this._value, this._then);
 
-  final RegisterState _value;
   // ignore: unused_field
-  final $Res Function(RegisterState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? hasmpinValidationData = freezed,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? hasmpinValidationData = null,
     Object? authDetails = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasmpinValidationData: hasmpinValidationData == freezed
+      hasmpinValidationData: null == hasmpinValidationData
           ? _value.hasmpinValidationData
           : hasmpinValidationData // ignore: cast_nullable_to_non_nullable
               as bool,
-      authDetails: authDetails == freezed
+      authDetails: freezed == authDetails
           ? _value.authDetails
           : authDetails // ignore: cast_nullable_to_non_nullable
               as RegisterResponse?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -387,6 +390,7 @@ abstract class _$$_RegisterStateCopyWith<$Res>
           _$_RegisterState value, $Res Function(_$_RegisterState) then) =
       __$$_RegisterStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       bool isError,
@@ -396,36 +400,34 @@ abstract class _$$_RegisterStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_RegisterStateCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$_RegisterState>
     implements _$$_RegisterStateCopyWith<$Res> {
   __$$_RegisterStateCopyWithImpl(
       _$_RegisterState _value, $Res Function(_$_RegisterState) _then)
-      : super(_value, (v) => _then(v as _$_RegisterState));
+      : super(_value, _then);
 
-  @override
-  _$_RegisterState get _value => super._value as _$_RegisterState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? hasmpinValidationData = freezed,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? hasmpinValidationData = null,
     Object? authDetails = freezed,
   }) {
     return _then(_$_RegisterState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasmpinValidationData: hasmpinValidationData == freezed
+      hasmpinValidationData: null == hasmpinValidationData
           ? _value.hasmpinValidationData
           : hasmpinValidationData // ignore: cast_nullable_to_non_nullable
               as bool,
-      authDetails: authDetails == freezed
+      authDetails: freezed == authDetails
           ? _value.authDetails
           : authDetails // ignore: cast_nullable_to_non_nullable
               as RegisterResponse?,
@@ -461,24 +463,22 @@ class _$_RegisterState implements _RegisterState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isError, isError) &&
-            const DeepCollectionEquality()
-                .equals(other.hasmpinValidationData, hasmpinValidationData) &&
-            const DeepCollectionEquality()
-                .equals(other.authDetails, authDetails));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.hasmpinValidationData, hasmpinValidationData) ||
+                other.hasmpinValidationData == hasmpinValidationData) &&
+            (identical(other.authDetails, authDetails) ||
+                other.authDetails == authDetails));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isError),
-      const DeepCollectionEquality().hash(hasmpinValidationData),
-      const DeepCollectionEquality().hash(authDetails));
+      runtimeType, isLoading, isError, hasmpinValidationData, authDetails);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RegisterStateCopyWith<_$_RegisterState> get copyWith =>
       __$$_RegisterStateCopyWithImpl<_$_RegisterState>(this, _$identity);
 }
@@ -491,13 +491,13 @@ abstract class _RegisterState implements RegisterState {
       required final RegisterResponse? authDetails}) = _$_RegisterState;
 
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  bool get isError => throw _privateConstructorUsedError;
+  bool get isError;
   @override
-  bool get hasmpinValidationData => throw _privateConstructorUsedError;
+  bool get hasmpinValidationData;
   @override
-  RegisterResponse? get authDetails => throw _privateConstructorUsedError;
+  RegisterResponse? get authDetails;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterStateCopyWith<_$_RegisterState> get copyWith =>

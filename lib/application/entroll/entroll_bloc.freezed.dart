@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'entroll_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$EntrollEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String id)? entroll,
-    TResult Function()? getlist,
+    TResult? Function(String id)? entroll,
+    TResult? Function()? getlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$EntrollEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Entroll value)? entroll,
-    TResult Function(_Getlist value)? getlist,
+    TResult? Function(_Entroll value)? entroll,
+    TResult? Function(_Getlist value)? getlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,16 +60,18 @@ mixin _$EntrollEvent {
 abstract class $EntrollEventCopyWith<$Res> {
   factory $EntrollEventCopyWith(
           EntrollEvent value, $Res Function(EntrollEvent) then) =
-      _$EntrollEventCopyWithImpl<$Res>;
+      _$EntrollEventCopyWithImpl<$Res, EntrollEvent>;
 }
 
 /// @nodoc
-class _$EntrollEventCopyWithImpl<$Res> implements $EntrollEventCopyWith<$Res> {
+class _$EntrollEventCopyWithImpl<$Res, $Val extends EntrollEvent>
+    implements $EntrollEventCopyWith<$Res> {
   _$EntrollEventCopyWithImpl(this._value, this._then);
 
-  final EntrollEvent _value;
   // ignore: unused_field
-  final $Res Function(EntrollEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -77,24 +79,24 @@ abstract class _$$_EntrollCopyWith<$Res> {
   factory _$$_EntrollCopyWith(
           _$_Entroll value, $Res Function(_$_Entroll) then) =
       __$$_EntrollCopyWithImpl<$Res>;
+  @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$_EntrollCopyWithImpl<$Res> extends _$EntrollEventCopyWithImpl<$Res>
+class __$$_EntrollCopyWithImpl<$Res>
+    extends _$EntrollEventCopyWithImpl<$Res, _$_Entroll>
     implements _$$_EntrollCopyWith<$Res> {
   __$$_EntrollCopyWithImpl(_$_Entroll _value, $Res Function(_$_Entroll) _then)
-      : super(_value, (v) => _then(v as _$_Entroll));
+      : super(_value, _then);
 
-  @override
-  _$_Entroll get _value => super._value as _$_Entroll;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_Entroll(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
@@ -120,15 +122,15 @@ class _$_Entroll implements _Entroll {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Entroll &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EntrollCopyWith<_$_Entroll> get copyWith =>
       __$$_EntrollCopyWithImpl<_$_Entroll>(this, _$identity);
 
@@ -144,8 +146,8 @@ class _$_Entroll implements _Entroll {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String id)? entroll,
-    TResult Function()? getlist,
+    TResult? Function(String id)? entroll,
+    TResult? Function()? getlist,
   }) {
     return entroll?.call(id);
   }
@@ -175,8 +177,8 @@ class _$_Entroll implements _Entroll {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Entroll value)? entroll,
-    TResult Function(_Getlist value)? getlist,
+    TResult? Function(_Entroll value)? entroll,
+    TResult? Function(_Getlist value)? getlist,
   }) {
     return entroll?.call(this);
   }
@@ -198,7 +200,7 @@ class _$_Entroll implements _Entroll {
 abstract class _Entroll implements EntrollEvent {
   const factory _Entroll({required final String id}) = _$_Entroll;
 
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @JsonKey(ignore: true)
   _$$_EntrollCopyWith<_$_Entroll> get copyWith =>
       throw _privateConstructorUsedError;
@@ -212,13 +214,11 @@ abstract class _$$_GetlistCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_GetlistCopyWithImpl<$Res> extends _$EntrollEventCopyWithImpl<$Res>
+class __$$_GetlistCopyWithImpl<$Res>
+    extends _$EntrollEventCopyWithImpl<$Res, _$_Getlist>
     implements _$$_GetlistCopyWith<$Res> {
   __$$_GetlistCopyWithImpl(_$_Getlist _value, $Res Function(_$_Getlist) _then)
-      : super(_value, (v) => _then(v as _$_Getlist));
-
-  @override
-  _$_Getlist get _value => super._value as _$_Getlist;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -252,8 +252,8 @@ class _$_Getlist implements _Getlist {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String id)? entroll,
-    TResult Function()? getlist,
+    TResult? Function(String id)? entroll,
+    TResult? Function()? getlist,
   }) {
     return getlist?.call();
   }
@@ -283,8 +283,8 @@ class _$_Getlist implements _Getlist {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Entroll value)? entroll,
-    TResult Function(_Getlist value)? getlist,
+    TResult? Function(_Entroll value)? entroll,
+    TResult? Function(_Getlist value)? getlist,
   }) {
     return getlist?.call(this);
   }
@@ -325,7 +325,8 @@ mixin _$EntrollState {
 abstract class $EntrollStateCopyWith<$Res> {
   factory $EntrollStateCopyWith(
           EntrollState value, $Res Function(EntrollState) then) =
-      _$EntrollStateCopyWithImpl<$Res>;
+      _$EntrollStateCopyWithImpl<$Res, EntrollState>;
+  @useResult
   $Res call(
       {bool isLoading,
       bool isError,
@@ -336,48 +337,51 @@ abstract class $EntrollStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EntrollStateCopyWithImpl<$Res> implements $EntrollStateCopyWith<$Res> {
+class _$EntrollStateCopyWithImpl<$Res, $Val extends EntrollState>
+    implements $EntrollStateCopyWith<$Res> {
   _$EntrollStateCopyWithImpl(this._value, this._then);
 
-  final EntrollState _value;
   // ignore: unused_field
-  final $Res Function(EntrollState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? hasmpinValidationData = freezed,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? hasmpinValidationData = null,
     Object? entrollhDetails = freezed,
     Object? getlist = freezed,
-    Object? listLoding = freezed,
+    Object? listLoding = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasmpinValidationData: hasmpinValidationData == freezed
+      hasmpinValidationData: null == hasmpinValidationData
           ? _value.hasmpinValidationData
           : hasmpinValidationData // ignore: cast_nullable_to_non_nullable
               as bool,
-      entrollhDetails: entrollhDetails == freezed
+      entrollhDetails: freezed == entrollhDetails
           ? _value.entrollhDetails
           : entrollhDetails // ignore: cast_nullable_to_non_nullable
               as Entroll?,
-      getlist: getlist == freezed
+      getlist: freezed == getlist
           ? _value.getlist
           : getlist // ignore: cast_nullable_to_non_nullable
               as GetList?,
-      listLoding: listLoding == freezed
+      listLoding: null == listLoding
           ? _value.listLoding
           : listLoding // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -388,6 +392,7 @@ abstract class _$$_EntrollStateCopyWith<$Res>
           _$_EntrollState value, $Res Function(_$_EntrollState) then) =
       __$$_EntrollStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       bool isError,
@@ -399,46 +404,44 @@ abstract class _$$_EntrollStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_EntrollStateCopyWithImpl<$Res>
-    extends _$EntrollStateCopyWithImpl<$Res>
+    extends _$EntrollStateCopyWithImpl<$Res, _$_EntrollState>
     implements _$$_EntrollStateCopyWith<$Res> {
   __$$_EntrollStateCopyWithImpl(
       _$_EntrollState _value, $Res Function(_$_EntrollState) _then)
-      : super(_value, (v) => _then(v as _$_EntrollState));
+      : super(_value, _then);
 
-  @override
-  _$_EntrollState get _value => super._value as _$_EntrollState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? hasmpinValidationData = freezed,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? hasmpinValidationData = null,
     Object? entrollhDetails = freezed,
     Object? getlist = freezed,
-    Object? listLoding = freezed,
+    Object? listLoding = null,
   }) {
     return _then(_$_EntrollState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasmpinValidationData: hasmpinValidationData == freezed
+      hasmpinValidationData: null == hasmpinValidationData
           ? _value.hasmpinValidationData
           : hasmpinValidationData // ignore: cast_nullable_to_non_nullable
               as bool,
-      entrollhDetails: entrollhDetails == freezed
+      entrollhDetails: freezed == entrollhDetails
           ? _value.entrollhDetails
           : entrollhDetails // ignore: cast_nullable_to_non_nullable
               as Entroll?,
-      getlist: getlist == freezed
+      getlist: freezed == getlist
           ? _value.getlist
           : getlist // ignore: cast_nullable_to_non_nullable
               as GetList?,
-      listLoding: listLoding == freezed
+      listLoding: null == listLoding
           ? _value.listLoding
           : listLoding // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -480,29 +483,25 @@ class _$_EntrollState implements _EntrollState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EntrollState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isError, isError) &&
-            const DeepCollectionEquality()
-                .equals(other.hasmpinValidationData, hasmpinValidationData) &&
-            const DeepCollectionEquality()
-                .equals(other.entrollhDetails, entrollhDetails) &&
-            const DeepCollectionEquality().equals(other.getlist, getlist) &&
-            const DeepCollectionEquality()
-                .equals(other.listLoding, listLoding));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.hasmpinValidationData, hasmpinValidationData) ||
+                other.hasmpinValidationData == hasmpinValidationData) &&
+            (identical(other.entrollhDetails, entrollhDetails) ||
+                other.entrollhDetails == entrollhDetails) &&
+            (identical(other.getlist, getlist) || other.getlist == getlist) &&
+            (identical(other.listLoding, listLoding) ||
+                other.listLoding == listLoding));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isError),
-      const DeepCollectionEquality().hash(hasmpinValidationData),
-      const DeepCollectionEquality().hash(entrollhDetails),
-      const DeepCollectionEquality().hash(getlist),
-      const DeepCollectionEquality().hash(listLoding));
+  int get hashCode => Object.hash(runtimeType, isLoading, isError,
+      hasmpinValidationData, entrollhDetails, getlist, listLoding);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EntrollStateCopyWith<_$_EntrollState> get copyWith =>
       __$$_EntrollStateCopyWithImpl<_$_EntrollState>(this, _$identity);
 }
@@ -517,17 +516,17 @@ abstract class _EntrollState implements EntrollState {
       required final bool listLoding}) = _$_EntrollState;
 
   @override
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
-  bool get isError => throw _privateConstructorUsedError;
+  bool get isError;
   @override
-  bool get hasmpinValidationData => throw _privateConstructorUsedError;
+  bool get hasmpinValidationData;
   @override
-  Entroll? get entrollhDetails => throw _privateConstructorUsedError;
+  Entroll? get entrollhDetails;
   @override
-  GetList? get getlist => throw _privateConstructorUsedError;
+  GetList? get getlist;
   @override
-  bool get listLoding => throw _privateConstructorUsedError;
+  bool get listLoding;
   @override
   @JsonKey(ignore: true)
   _$$_EntrollStateCopyWith<_$_EntrollState> get copyWith =>
