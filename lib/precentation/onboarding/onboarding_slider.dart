@@ -63,11 +63,11 @@ class _OnBoardingSliderState extends State<OnBoardingSlider> {
                 (index) => AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   margin: const EdgeInsets.only(right: 12, top: 15, bottom: 10),
-                  height: index == sliderindex ? 15 : 8,
-                  width: 8,
+                  height: 10,
+                  width: 10,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
-                    color: index == sliderindex ? Colors.grey : Colors.grey,
+                    color: index == sliderindex ? Colors.white : Colors.white.withOpacity(0.4),
                   ),
                 ),
               ),

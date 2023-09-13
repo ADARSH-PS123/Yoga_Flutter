@@ -3,42 +3,41 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import '../../core/api.dart';
+import 'package:yoga/domain/entroll/model/payment_intent_model.dart';
 import '../../core/main_failures.dart';
-import '../../domain/login/i_login_repo.dart';
-import '../../domain/login/model/login.dart';
+import '../../domain/entroll/i_intent_repo.dart';
 
-@LazySingleton(as: ILogin)
-class LoginRepository implements ILogin {
+@LazySingleton(as: IIntent)
+class IntentRepository implements IIntent {
   @override
-  Future<Either<MainFailure, Login>> login({
-    required String email,
-    required String password,
+  Future<Either<MainFailure, PaymentInentModel>> paymentIntent({
+    required int amount,
   }) async {
     var dio = Dio();
+
+    const url = 'https://gurujisanjeevkrishna.com/api/payment-intent';
+
     try {
       final response = await dio.post(
-        EndPoints.login,
-        queryParameters: {
-          'email': email,
-          'password': password,
-        },
+        url,
+        data: {'amount': amount},
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final loginResult = Login.fromJson(response.data);
+        final result = PaymentInentModel.fromJson(response.data);
+        log(result.data.toString());
 
-        log(loginResult.token.toString());
-        return Right(loginResult);
+        return Right(result);
       } else {
         log(const MainFailure.serverFailure().toString());
         return const Left(MainFailure.serverFailure());
       }
     } catch (e) {
-       log(e.toString());
+      log(e.toString());
       return const Left(MainFailure.clientFailure());
     }
   }
 
   static fromJson(data) {}
 }
+

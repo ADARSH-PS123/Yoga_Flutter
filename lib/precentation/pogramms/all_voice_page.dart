@@ -39,6 +39,8 @@ class AllVoicePage extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => VoiceDetailsePage(
                         voiceData: state.wisdomVoice!.data![index],
+                        user: state.wisdomVoice!.user!,
+                        vsky: false,
                       ),
                     ),
                   );

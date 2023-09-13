@@ -14,10 +14,13 @@ import '../payment/stripe_screen.dart';
 
 class VoiceDetailsePage extends StatefulWidget {
   final Datum voiceData;
-  const VoiceDetailsePage({
-    super.key,
-    required this.voiceData,
-  });
+  final User user;
+  final bool vsky;
+  const VoiceDetailsePage(
+      {super.key,
+      required this.voiceData,
+      required this.user,
+      required this.vsky});
 
   @override
   State<VoiceDetailsePage> createState() => _VoiceDetailsePageState();
@@ -52,31 +55,27 @@ class _VoiceDetailsePageState extends State<VoiceDetailsePage> {
 
   @override
   void initState() {
-    
-      voiceDataUrl =
-          "https://gurujisanjeevkrishna.com/${widget.voiceData.audio}";
+    voiceDataUrl = "https://gurujisanjeevkrishna.com/${widget.voiceData.audio}";
 
-      playerStateSubscription =
-          audioPlayer.onPlayerStateChanged.listen((event) {
-        setState(() {
-          isPlying = event == PlayerState.playing;
-        });
+    playerStateSubscription = audioPlayer.onPlayerStateChanged.listen((event) {
+      setState(() {
+        isPlying = event == PlayerState.playing;
       });
+    });
 
-      durationChangedSubscription =
-          audioPlayer.onDurationChanged.listen((newDuration) {
-        setState(() {
-          duration = newDuration;
-        });
+    durationChangedSubscription =
+        audioPlayer.onDurationChanged.listen((newDuration) {
+      setState(() {
+        duration = newDuration;
       });
+    });
 
-      positionChangedSubscription =
-          audioPlayer.onPositionChanged.listen((newPosition) {
-        setState(() {
-          position = newPosition;
-        });
+    positionChangedSubscription =
+        audioPlayer.onPositionChanged.listen((newPosition) {
+      setState(() {
+        position = newPosition;
       });
-    
+    });
 
     super.initState();
   }
@@ -149,122 +148,48 @@ class _VoiceDetailsePageState extends State<VoiceDetailsePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
-                    child: widget.voiceData.types == "Premium"
-                        ? Column(
-                            children: [
-                              ButtonWidgets(
-                                  title: "Buy",
-                                  width: double.maxFinite,
-                                  onPressed: () {
-                                    Navigator.of(context).pushAndRemoveUntil(
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            StripePaymentScreen(
-                                          amount: widget.voiceData.amount!,
-                                        ),
-                                      ),
-                                      (route) => false,
-                                    );
-                                  })
-                            ],
-                          )
-                        : Column(
-                            children: [
-                              buildSlider(),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 18),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(formatTime(duration)),
-                                    Text(formatTime(duration - position)),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                    child: widget.voiceData.types == "Free"
+                        ? buildAudioWidget()
+                        : widget.vsky && widget.user.voiceOfSky == 0
+                            ? Column(
                                 children: [
-                                  isLoading
-                                      ? const SizedBox()
-                                      : IconButton(
-                                          color: Colors.white,
-                                          onPressed: () async {
-                                            const leftPosition =
-                                                Duration(seconds: 10);
-                                            await audioPlayer
-                                                .seek(position - leftPosition);
-                                            await audioPlayer.resume();
-                                          },
-                                          icon: const RotatedBox(
-                                            quarterTurns: 2,
-                                            child: Icon(
-                                              Icons.play_arrow,
-                                              textDirection: TextDirection.ltr,
+                                  ButtonWidgets(
+                                      title: "Buy",
+                                      width: double.maxFinite,
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                StripePaymentScreen(
+                                              pyamentType: PyamentType.vSky,
+                                              id: widget.voiceData.id!,
                                             ),
                                           ),
-                                        ),
-                                  const SizedBox(width: 10),
-                                  isLoading
-                                      ? SizedBox(
-                                          height: 20,
-                                          width: 20,
-                                          child: CircularProgressIndicator(
-                                            backgroundColor:
-                                                Colors.white.withOpacity(0.3),
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      : IconButton(
-                                          color: Colors.white,
-                                          onPressed: () async {
-                                            if (isPlying) {
-                                              await audioPlayer.pause();
-                                            } else {
-                                              setState(() {
-                                                isLoading = true;
-                                              });
-
-                                              audioPlayer
-                                                  .setSourceUrl(voiceDataUrl)
-                                                  .then((value) async {
-                                                await audioPlayer.resume();
-                                                setState(() {
-                                                  isLoading = false;
-                                                });
-                                              });
-                                            }
-                                          },
-                                          icon: Icon(
-                                            isPlying
-                                                ? Icons.pause
-                                                : Icons.play_arrow,
-                                          ),
-                                        ),
-                                  const SizedBox(width: 10),
-                                  isLoading
-                                      ? const SizedBox()
-                                      : IconButton(
-                                          color: Colors.white,
-                                          onPressed: () async {
-                                            const rightPosition =
-                                                Duration(seconds: 10);
-                                            await audioPlayer
-                                                .seek(position + rightPosition);
-                                            await audioPlayer.resume();
-                                          },
-                                          icon: const Icon(
-                                            Icons.play_arrow,
-                                            textDirection: TextDirection.ltr,
-                                          ),
-                                        ),
+                                        );
+                                      })
                                 ],
                               )
-                            ],
-                          )),
+                            : !widget.vsky && widget.user.skyWisdome == 0
+                                ? Column(
+                                    children: [
+                                      ButtonWidgets(
+                                          title: "Buy",
+                                          width: double.maxFinite,
+                                          onPressed: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    StripePaymentScreen(
+                                                  pyamentType:
+                                                      PyamentType.vWisdom,
+                                                  id: widget.voiceData.id!,
+                                                ),
+                                              ),
+                                            );
+                                          })
+                                    ],
+                                  )
+                                : buildAudioWidget()),
               ),
             ),
           ],
@@ -272,6 +197,95 @@ class _VoiceDetailsePageState extends State<VoiceDetailsePage> {
       ),
     );
   }
+
+  Widget buildAudioWidget() => Column(
+        children: [
+          buildSlider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(formatTime(duration)),
+                Text(formatTime(duration - position)),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              isLoading
+                  ? const SizedBox()
+                  : IconButton(
+                      color: Colors.white,
+                      onPressed: () async {
+                        const leftPosition = Duration(seconds: 10);
+                        await audioPlayer.seek(position - leftPosition);
+                        await audioPlayer.resume();
+                      },
+                      icon: const RotatedBox(
+                        quarterTurns: 2,
+                        child: Icon(
+                          Icons.play_arrow,
+                          textDirection: TextDirection.ltr,
+                        ),
+                      ),
+                    ),
+              const SizedBox(width: 10),
+              isLoading
+                  ? SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.white.withOpacity(0.3),
+                        color: Colors.white,
+                      ),
+                    )
+                  : IconButton(
+                      color: Colors.white,
+                      onPressed: () async {
+                        if (isPlying) {
+                          await audioPlayer.pause();
+                        } else {
+                          setState(() {
+                            isLoading = true;
+                          });
+
+                          audioPlayer
+                              .setSourceUrl(voiceDataUrl)
+                              .then((value) async {
+                            await audioPlayer.resume();
+                            setState(() {
+                              isLoading = false;
+                            });
+                          });
+                        }
+                      },
+                      icon: Icon(
+                        isPlying ? Icons.pause : Icons.play_arrow,
+                      ),
+                    ),
+              const SizedBox(width: 10),
+              isLoading
+                  ? const SizedBox()
+                  : IconButton(
+                      color: Colors.white,
+                      onPressed: () async {
+                        const rightPosition = Duration(seconds: 10);
+                        await audioPlayer.seek(position + rightPosition);
+                        await audioPlayer.resume();
+                      },
+                      icon: const Icon(
+                        Icons.play_arrow,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    ),
+            ],
+          )
+        ],
+      );
 
   Widget buildSlider() => Slider(
         inactiveColor: Colors.white.withOpacity(0.3),

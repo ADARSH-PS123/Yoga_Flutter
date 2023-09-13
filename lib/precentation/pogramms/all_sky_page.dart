@@ -25,7 +25,6 @@ class AllSkyPage extends StatelessWidget {
           final VoiceData voiceOfSky =
               context.read<VoiceBloc>().state.voiceOfSky!;
           return SizedBox(
-          
             width: double.maxFinite,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
@@ -35,14 +34,17 @@ class AllSkyPage extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => VoiceDetailsePage(
-                          voiceData: state.voiceOfSky!.data![index]),
+                        voiceData: state.voiceOfSky!.data![index],
+                         user: state.voiceOfSky!.user!,
+                        vsky: true,
+                      ),
                     ),
                   );
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 5,top: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 5, top: 20),
                   child: ProgrammItem(
-                               height: 200,
+                      height: 200,
                       isVoice: true,
                       color: p[index].bgColor,
                       name: voiceOfSky.data![index].title.toString(),

@@ -9,6 +9,7 @@ import 'package:yoga/precentation/programm_details/program_details_page.dart';
 import 'package:yoga/precentation/voice_details_page/voice_detailse_page.dart';
 
 import '../main/widgets/bottom_navigation_widgets.dart';
+import 'all_programm.dart';
 
 class ProgrammsPage extends StatelessWidget {
   const ProgrammsPage({super.key});
@@ -75,7 +76,10 @@ class ProgrammsPage extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: () => selectedIndexNorifier.value = 3,
+                        onTap: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const AllProgrammPage(),
+                        )),
                         child: const Icon(
                           Icons.arrow_forward_ios,
                         ),
@@ -145,7 +149,7 @@ class ProgrammsPage extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: () => selectedIndexNorifier.value = 2,
+                        onTap: () => selectedIndexNorifier.value = 3,
                         child: const Icon(
                           Icons.arrow_forward_ios,
                         ),
@@ -182,8 +186,10 @@ class ProgrammsPage extends StatelessWidget {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => VoiceDetailsePage(
-                                        voiceData:
-                                            state.voiceOfSky!.data![index]),
+                                      voiceData: state.voiceOfSky!.data![index],
+                                      user: state.voiceOfSky!.user!,
+                                      vsky: true,
+                                    ),
                                   ),
                                 );
                               },
@@ -226,6 +232,9 @@ class ProgrammsPage extends StatelessWidget {
                       )
                     ],
                   ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   BlocConsumer<VoiceBloc, VoiceState>(
                     listener: (context, state) {
                       // TODO: implement listener
@@ -254,6 +263,8 @@ class ProgrammsPage extends StatelessWidget {
                                     builder: (context) => VoiceDetailsePage(
                                       voiceData:
                                           state.wisdomVoice!.data![index],
+                                      user: state.wisdomVoice!.user!,
+                                      vsky: false,
                                     ),
                                   ),
                                 );

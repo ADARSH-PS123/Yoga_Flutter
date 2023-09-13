@@ -7,4 +7,9 @@ class EntrollEvent with _$EntrollEvent {
   }) = _Entroll;
 
   const factory EntrollEvent.getlist() = _Getlist;
+
+
+    const factory EntrollEvent.paymentIntent({
+    required int amount,
+  }) = _PaymentIntent;
 }

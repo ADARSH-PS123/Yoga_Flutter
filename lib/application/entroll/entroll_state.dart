@@ -4,10 +4,13 @@ part of 'entroll_bloc.dart';
 class EntrollState with _$EntrollState {
   const factory EntrollState({
     required bool isLoading,
+    required bool intentLoading,
+    required bool intentCreated,
     required bool isError,
     required bool hasmpinValidationData,
     required Entroll? entrollhDetails,
     required GetList? getlist,
+    required PaymentInentModel? intetData,
     required bool listLoding,
   }) = _EntrollState;
 
@@ -18,5 +21,8 @@ class EntrollState with _$EntrollState {
         entrollhDetails: null,
         getlist: null,
         listLoding: false,
+        intentCreated: false,
+        intentLoading: false,
+        intetData: null,
       );
 }

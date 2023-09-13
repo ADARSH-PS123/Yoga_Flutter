@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:yoga/core/di/pgram_list.dart';
 
+import '../payment/stripe_screen.dart';
+
 void showPopup(BuildContext context, Prize prize) async {
   final result = await showModalBottomSheet(
     context: context,
@@ -105,8 +107,11 @@ class DescriptionSheet extends StatelessWidget {
                                       ),
                                     ),
                                   )
-                                : buildOnline(prize.online["pr"],
-                                    prize.online["no"], prize.online["to"]),
+                                : buildOnline(
+                                    prize.online["pr"],
+                                    prize.online["no"],
+                                    prize.online["to"],
+                                    context),
                             prize.offline.isEmpty
                                 ? const Center(
                                     child: Padding(
@@ -122,8 +127,11 @@ class DescriptionSheet extends StatelessWidget {
                                       ),
                                     ),
                                   )
-                                : buildOffline(prize.offline["pr"],
-                                    prize.offline["no"], prize.offline["to"])
+                                : buildOffline(
+                                    prize.offline["pr"],
+                                    prize.offline["no"],
+                                    prize.offline["to"],
+                                    context)
                           ],
                         ),
                       ),
@@ -155,57 +163,6 @@ class DescriptionSheet extends StatelessWidget {
                         )
                       ]),
                     )),
-              SizedBox(
-                height: 80,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.grey.shade300,
-                          foregroundColor: Colors.black,
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 15,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              30,
-                            ),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context, 'cancel');
-                        },
-                        child: Text('Cancel'),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 15,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              30,
-                            ),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(
-                            context,
-                          );
-                        },
-                        child: const Text('Subscribe'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
@@ -213,7 +170,7 @@ class DescriptionSheet extends StatelessWidget {
     );
   }
 
-  Widget buildOnline(String pr, nu, to) {
+  Widget buildOnline(String pr, nu, to, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: SizedBox(
@@ -223,13 +180,17 @@ class DescriptionSheet extends StatelessWidget {
             buildContent("Prize per session", pr),
             buildContent("Number of session", nu),
             buildContent("Total prize", to),
+            buttonRow(
+              context,
+              int.parse(to),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget buildOffline(String pr, nu, to) {
+  Widget buildOffline(String pr, nu, to, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: SizedBox(
@@ -239,11 +200,70 @@ class DescriptionSheet extends StatelessWidget {
             buildContent("Prize per session", pr),
             buildContent("Number of session", nu),
             buildContent("Total prize", to),
+            buttonRow(
+              context,
+              int.parse(to),
+            ),
           ],
         ),
       ),
     );
   }
+
+  Widget buttonRow(BuildContext context, int amount) => SizedBox(
+        height: 80,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.grey.shade300,
+                  foregroundColor: Colors.black,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      30,
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context, 'cancel');
+                },
+                child: Text('Cancel'),
+              ),
+            ),
+            const SizedBox(width: 20),
+            Expanded(
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      30,
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => StripePaymentScreen(
+                          pyamentType: PyamentType.yoga, id: 2, amount: amount),
+                    ),
+                  );
+                },
+                child: const Text('Subscribe'),
+              ),
+            ),
+          ],
+        ),
+      );
 
   Widget buildContent(String name, value) => Padding(
         padding: const EdgeInsets.only(bottom: 20),

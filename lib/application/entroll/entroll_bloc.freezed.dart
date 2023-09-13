@@ -20,18 +20,21 @@ mixin _$EntrollEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) entroll,
     required TResult Function() getlist,
+    required TResult Function(int amount) paymentIntent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? entroll,
     TResult? Function()? getlist,
+    TResult? Function(int amount)? paymentIntent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? entroll,
     TResult Function()? getlist,
+    TResult Function(int amount)? paymentIntent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$EntrollEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Entroll value) entroll,
     required TResult Function(_Getlist value) getlist,
+    required TResult Function(_PaymentIntent value) paymentIntent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Entroll value)? entroll,
     TResult? Function(_Getlist value)? getlist,
+    TResult? Function(_PaymentIntent value)? paymentIntent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Entroll value)? entroll,
     TResult Function(_Getlist value)? getlist,
+    TResult Function(_PaymentIntent value)? paymentIntent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +145,7 @@ class _$_Entroll implements _Entroll {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) entroll,
     required TResult Function() getlist,
+    required TResult Function(int amount) paymentIntent,
   }) {
     return entroll(id);
   }
@@ -148,6 +155,7 @@ class _$_Entroll implements _Entroll {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? entroll,
     TResult? Function()? getlist,
+    TResult? Function(int amount)? paymentIntent,
   }) {
     return entroll?.call(id);
   }
@@ -157,6 +165,7 @@ class _$_Entroll implements _Entroll {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? entroll,
     TResult Function()? getlist,
+    TResult Function(int amount)? paymentIntent,
     required TResult orElse(),
   }) {
     if (entroll != null) {
@@ -170,6 +179,7 @@ class _$_Entroll implements _Entroll {
   TResult map<TResult extends Object?>({
     required TResult Function(_Entroll value) entroll,
     required TResult Function(_Getlist value) getlist,
+    required TResult Function(_PaymentIntent value) paymentIntent,
   }) {
     return entroll(this);
   }
@@ -179,6 +189,7 @@ class _$_Entroll implements _Entroll {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Entroll value)? entroll,
     TResult? Function(_Getlist value)? getlist,
+    TResult? Function(_PaymentIntent value)? paymentIntent,
   }) {
     return entroll?.call(this);
   }
@@ -188,6 +199,7 @@ class _$_Entroll implements _Entroll {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Entroll value)? entroll,
     TResult Function(_Getlist value)? getlist,
+    TResult Function(_PaymentIntent value)? paymentIntent,
     required TResult orElse(),
   }) {
     if (entroll != null) {
@@ -245,6 +257,7 @@ class _$_Getlist implements _Getlist {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) entroll,
     required TResult Function() getlist,
+    required TResult Function(int amount) paymentIntent,
   }) {
     return getlist();
   }
@@ -254,6 +267,7 @@ class _$_Getlist implements _Getlist {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? entroll,
     TResult? Function()? getlist,
+    TResult? Function(int amount)? paymentIntent,
   }) {
     return getlist?.call();
   }
@@ -263,6 +277,7 @@ class _$_Getlist implements _Getlist {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? entroll,
     TResult Function()? getlist,
+    TResult Function(int amount)? paymentIntent,
     required TResult orElse(),
   }) {
     if (getlist != null) {
@@ -276,6 +291,7 @@ class _$_Getlist implements _Getlist {
   TResult map<TResult extends Object?>({
     required TResult Function(_Entroll value) entroll,
     required TResult Function(_Getlist value) getlist,
+    required TResult Function(_PaymentIntent value) paymentIntent,
   }) {
     return getlist(this);
   }
@@ -285,6 +301,7 @@ class _$_Getlist implements _Getlist {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Entroll value)? entroll,
     TResult? Function(_Getlist value)? getlist,
+    TResult? Function(_PaymentIntent value)? paymentIntent,
   }) {
     return getlist?.call(this);
   }
@@ -294,6 +311,7 @@ class _$_Getlist implements _Getlist {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Entroll value)? entroll,
     TResult Function(_Getlist value)? getlist,
+    TResult Function(_PaymentIntent value)? paymentIntent,
     required TResult orElse(),
   }) {
     if (getlist != null) {
@@ -308,12 +326,154 @@ abstract class _Getlist implements EntrollEvent {
 }
 
 /// @nodoc
+abstract class _$$_PaymentIntentCopyWith<$Res> {
+  factory _$$_PaymentIntentCopyWith(
+          _$_PaymentIntent value, $Res Function(_$_PaymentIntent) then) =
+      __$$_PaymentIntentCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int amount});
+}
+
+/// @nodoc
+class __$$_PaymentIntentCopyWithImpl<$Res>
+    extends _$EntrollEventCopyWithImpl<$Res, _$_PaymentIntent>
+    implements _$$_PaymentIntentCopyWith<$Res> {
+  __$$_PaymentIntentCopyWithImpl(
+      _$_PaymentIntent _value, $Res Function(_$_PaymentIntent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? amount = null,
+  }) {
+    return _then(_$_PaymentIntent(
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PaymentIntent implements _PaymentIntent {
+  const _$_PaymentIntent({required this.amount});
+
+  @override
+  final int amount;
+
+  @override
+  String toString() {
+    return 'EntrollEvent.paymentIntent(amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PaymentIntent &&
+            (identical(other.amount, amount) || other.amount == amount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, amount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PaymentIntentCopyWith<_$_PaymentIntent> get copyWith =>
+      __$$_PaymentIntentCopyWithImpl<_$_PaymentIntent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) entroll,
+    required TResult Function() getlist,
+    required TResult Function(int amount) paymentIntent,
+  }) {
+    return paymentIntent(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? entroll,
+    TResult? Function()? getlist,
+    TResult? Function(int amount)? paymentIntent,
+  }) {
+    return paymentIntent?.call(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? entroll,
+    TResult Function()? getlist,
+    TResult Function(int amount)? paymentIntent,
+    required TResult orElse(),
+  }) {
+    if (paymentIntent != null) {
+      return paymentIntent(amount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Entroll value) entroll,
+    required TResult Function(_Getlist value) getlist,
+    required TResult Function(_PaymentIntent value) paymentIntent,
+  }) {
+    return paymentIntent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Entroll value)? entroll,
+    TResult? Function(_Getlist value)? getlist,
+    TResult? Function(_PaymentIntent value)? paymentIntent,
+  }) {
+    return paymentIntent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Entroll value)? entroll,
+    TResult Function(_Getlist value)? getlist,
+    TResult Function(_PaymentIntent value)? paymentIntent,
+    required TResult orElse(),
+  }) {
+    if (paymentIntent != null) {
+      return paymentIntent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PaymentIntent implements EntrollEvent {
+  const factory _PaymentIntent({required final int amount}) = _$_PaymentIntent;
+
+  int get amount;
+  @JsonKey(ignore: true)
+  _$$_PaymentIntentCopyWith<_$_PaymentIntent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$EntrollState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get intentLoading => throw _privateConstructorUsedError;
+  bool get intentCreated => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get hasmpinValidationData => throw _privateConstructorUsedError;
   Entroll? get entrollhDetails => throw _privateConstructorUsedError;
   GetList? get getlist => throw _privateConstructorUsedError;
+  PaymentInentModel? get intetData => throw _privateConstructorUsedError;
   bool get listLoding => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -329,10 +489,13 @@ abstract class $EntrollStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool intentLoading,
+      bool intentCreated,
       bool isError,
       bool hasmpinValidationData,
       Entroll? entrollhDetails,
       GetList? getlist,
+      PaymentInentModel? intetData,
       bool listLoding});
 }
 
@@ -350,16 +513,27 @@ class _$EntrollStateCopyWithImpl<$Res, $Val extends EntrollState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? intentLoading = null,
+    Object? intentCreated = null,
     Object? isError = null,
     Object? hasmpinValidationData = null,
     Object? entrollhDetails = freezed,
     Object? getlist = freezed,
+    Object? intetData = freezed,
     Object? listLoding = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      intentLoading: null == intentLoading
+          ? _value.intentLoading
+          : intentLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      intentCreated: null == intentCreated
+          ? _value.intentCreated
+          : intentCreated // ignore: cast_nullable_to_non_nullable
               as bool,
       isError: null == isError
           ? _value.isError
@@ -377,6 +551,10 @@ class _$EntrollStateCopyWithImpl<$Res, $Val extends EntrollState>
           ? _value.getlist
           : getlist // ignore: cast_nullable_to_non_nullable
               as GetList?,
+      intetData: freezed == intetData
+          ? _value.intetData
+          : intetData // ignore: cast_nullable_to_non_nullable
+              as PaymentInentModel?,
       listLoding: null == listLoding
           ? _value.listLoding
           : listLoding // ignore: cast_nullable_to_non_nullable
@@ -395,10 +573,13 @@ abstract class _$$_EntrollStateCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
+      bool intentLoading,
+      bool intentCreated,
       bool isError,
       bool hasmpinValidationData,
       Entroll? entrollhDetails,
       GetList? getlist,
+      PaymentInentModel? intetData,
       bool listLoding});
 }
 
@@ -414,16 +595,27 @@ class __$$_EntrollStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? intentLoading = null,
+    Object? intentCreated = null,
     Object? isError = null,
     Object? hasmpinValidationData = null,
     Object? entrollhDetails = freezed,
     Object? getlist = freezed,
+    Object? intetData = freezed,
     Object? listLoding = null,
   }) {
     return _then(_$_EntrollState(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      intentLoading: null == intentLoading
+          ? _value.intentLoading
+          : intentLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      intentCreated: null == intentCreated
+          ? _value.intentCreated
+          : intentCreated // ignore: cast_nullable_to_non_nullable
               as bool,
       isError: null == isError
           ? _value.isError
@@ -441,6 +633,10 @@ class __$$_EntrollStateCopyWithImpl<$Res>
           ? _value.getlist
           : getlist // ignore: cast_nullable_to_non_nullable
               as GetList?,
+      intetData: freezed == intetData
+          ? _value.intetData
+          : intetData // ignore: cast_nullable_to_non_nullable
+              as PaymentInentModel?,
       listLoding: null == listLoding
           ? _value.listLoding
           : listLoding // ignore: cast_nullable_to_non_nullable
@@ -454,14 +650,21 @@ class __$$_EntrollStateCopyWithImpl<$Res>
 class _$_EntrollState implements _EntrollState {
   const _$_EntrollState(
       {required this.isLoading,
+      required this.intentLoading,
+      required this.intentCreated,
       required this.isError,
       required this.hasmpinValidationData,
       required this.entrollhDetails,
       required this.getlist,
+      required this.intetData,
       required this.listLoding});
 
   @override
   final bool isLoading;
+  @override
+  final bool intentLoading;
+  @override
+  final bool intentCreated;
   @override
   final bool isError;
   @override
@@ -471,11 +674,13 @@ class _$_EntrollState implements _EntrollState {
   @override
   final GetList? getlist;
   @override
+  final PaymentInentModel? intetData;
+  @override
   final bool listLoding;
 
   @override
   String toString() {
-    return 'EntrollState(isLoading: $isLoading, isError: $isError, hasmpinValidationData: $hasmpinValidationData, entrollhDetails: $entrollhDetails, getlist: $getlist, listLoding: $listLoding)';
+    return 'EntrollState(isLoading: $isLoading, intentLoading: $intentLoading, intentCreated: $intentCreated, isError: $isError, hasmpinValidationData: $hasmpinValidationData, entrollhDetails: $entrollhDetails, getlist: $getlist, intetData: $intetData, listLoding: $listLoding)';
   }
 
   @override
@@ -485,19 +690,34 @@ class _$_EntrollState implements _EntrollState {
             other is _$_EntrollState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.intentLoading, intentLoading) ||
+                other.intentLoading == intentLoading) &&
+            (identical(other.intentCreated, intentCreated) ||
+                other.intentCreated == intentCreated) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.hasmpinValidationData, hasmpinValidationData) ||
                 other.hasmpinValidationData == hasmpinValidationData) &&
             (identical(other.entrollhDetails, entrollhDetails) ||
                 other.entrollhDetails == entrollhDetails) &&
             (identical(other.getlist, getlist) || other.getlist == getlist) &&
+            (identical(other.intetData, intetData) ||
+                other.intetData == intetData) &&
             (identical(other.listLoding, listLoding) ||
                 other.listLoding == listLoding));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, isError,
-      hasmpinValidationData, entrollhDetails, getlist, listLoding);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      intentLoading,
+      intentCreated,
+      isError,
+      hasmpinValidationData,
+      entrollhDetails,
+      getlist,
+      intetData,
+      listLoding);
 
   @JsonKey(ignore: true)
   @override
@@ -509,14 +729,21 @@ class _$_EntrollState implements _EntrollState {
 abstract class _EntrollState implements EntrollState {
   const factory _EntrollState(
       {required final bool isLoading,
+      required final bool intentLoading,
+      required final bool intentCreated,
       required final bool isError,
       required final bool hasmpinValidationData,
       required final Entroll? entrollhDetails,
       required final GetList? getlist,
+      required final PaymentInentModel? intetData,
       required final bool listLoding}) = _$_EntrollState;
 
   @override
   bool get isLoading;
+  @override
+  bool get intentLoading;
+  @override
+  bool get intentCreated;
   @override
   bool get isError;
   @override
@@ -525,6 +752,8 @@ abstract class _EntrollState implements EntrollState {
   Entroll? get entrollhDetails;
   @override
   GetList? get getlist;
+  @override
+  PaymentInentModel? get intetData;
   @override
   bool get listLoding;
   @override

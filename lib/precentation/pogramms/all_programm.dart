@@ -11,50 +11,53 @@ class AllProgrammPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProgrammsBloc, ProgrammsState>(
-      builder: (context, state) {
-        if (state.isLoading) {
-          return const Center(
-            child: CircularProgressIndicator(color: Colors.white),
-          );
-        } else if (state.isError) {
-          return const Center(
-            child: Text("No Data Found"),
-          );
-        } else if (state.isData) {
-          context.read<ProgrammsBloc>().state.programmsDetails!;
-          return SizedBox(
-            width: double.maxFinite,
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: p.length,
-              itemBuilder: (context, index) => InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ProgramDetailsPage(programs: p[index]),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 5, top: 20),
-                  child: ProgrammItem(
-                      height: 200,
-                      isVoice: false,
-                      color: p[index].bgColor,
-                      name: p[index].mainTitle.toString(),
-                      imgUrl: p[index].image.toString()),
+    return Scaffold(
+      appBar: const AllProgrammAppBar(),
+      body: BlocBuilder<ProgrammsBloc, ProgrammsState>(
+        builder: (context, state) {
+          if (state.isLoading) {
+            return const Center(
+              child: CircularProgressIndicator(color: Colors.white),
+            );
+          } else if (state.isError) {
+            return const Center(
+              child: Text("No Data Found"),
+            );
+          } else if (state.isData) {
+            context.read<ProgrammsBloc>().state.programmsDetails!;
+            return SizedBox(
+              width: double.maxFinite,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: p.length,
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProgramDetailsPage(programs: p[index]),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 5, top: 20),
+                    child: ProgrammItem(
+                        height: 200,
+                        isVoice: false,
+                        color: p[index].bgColor,
+                        name: p[index].mainTitle.toString(),
+                        imgUrl: p[index].image.toString()),
+                  ),
                 ),
               ),
-            ),
-          );
-        } else {
-          return const Center(
-            child: Text("No Data Found"),
-          );
-        }
-      },
+            );
+          } else {
+            return const Center(
+              child: Text("No Data Found"),
+            );
+          }
+        },
+      ),
     );
   }
 }
